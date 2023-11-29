@@ -22,12 +22,6 @@
 
 # 📖 React/Rails AppointWheels <a name="about-project"></a>
 
-<div align="center">
-  <a href="https://rails-coincraft.onrender.com/" target="_blank">
-    <img src="./app/assets/images/screenshot.png" />
-  </a>
-</div>
-
 **AppointWheels** description...
 
 ## 🛠 Built With <a name="built-with"></a>
