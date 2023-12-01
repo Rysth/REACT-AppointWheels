@@ -1,7 +1,10 @@
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return <div className="App" />;
-}
+const App = () => (
+  <BrowserRouter>
+    <div className="App" />
+  </BrowserRouter>
+);
 
 export default App;
