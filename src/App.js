@@ -5,13 +5,15 @@ import Rentals from './components/pages/Rentals';
 import CarDetail from './components/pages/CarDetail';
 import CarDelete from './components/pages/CarDelete';
 import RentalNew from './components/pages/RentalNew';
+import SignUp from './components/pages/SignUp';
+import HomePage from './components/pages/HomePage';
 
 const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={} />
-      <Route path="/" element={} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/new" element={<NewCar />} />
       <Route path="/delete" element={<CarDelete />} />
       <Route path="/detail" element={<CarDetail />} />
