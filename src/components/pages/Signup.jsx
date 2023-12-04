@@ -1,9 +1,9 @@
-function Signup() {
-  return(
-    <section class="signup">
-      <h1>Signup</h1>
+function SignUp() {
+  return (
+    <section className="SignUp">
+      <h1>SignUp</h1>
     </section>
   );
 }
 
-export default Signup;
+export default SignUp;

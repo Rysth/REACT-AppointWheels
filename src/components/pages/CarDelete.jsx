@@ -1,6 +1,6 @@
 function CarDelete() {
-  return(
-    <section class="carDelete">
+  return (
+    <section className="carDelete">
       <h1>Car Delete</h1>
     </section>
   );

@@ -1,6 +1,6 @@
 function RentalNew() {
-  return(
-    <section class="rentalNew">
+  return (
+    <section className="rentalNew">
       <h1>Rental New</h1>
     </section>
   );

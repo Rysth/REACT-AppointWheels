@@ -1,6 +1,6 @@
 function CarDetail() {
-  return(
-    <section class="carDetail">
+  return (
+    <section className="carDetail">
       <h1>Car Detail</h1>
     </section>
   );

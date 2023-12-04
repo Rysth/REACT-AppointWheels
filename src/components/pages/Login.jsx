@@ -1,6 +1,6 @@
 function Login() {
-  return(
-    <section class="login">
+  return (
+    <section className="login">
       <h1>Login</h1>
     </section>
   );

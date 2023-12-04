@@ -1,6 +1,6 @@
 function Rentals() {
-  return(
-    <section class="rentals">
+  return (
+    <section className="rentals">
       <h1>Rentals</h1>
     </section>
   );
