@@ -20,3 +20,7 @@
 .btn-secondary {
   @apply bg-white text-[var(--green)];
 }
+
+.active {
+  @apply bg-[var(--green)] text-white;
+}
