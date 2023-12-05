@@ -7,9 +7,11 @@ import CarDelete from './components/pages/CarDelete';
 import RentalNew from './components/pages/RentalNew';
 import SignUp from './components/pages/SignUp';
 import HomePage from './components/pages/HomePage';
+import Navigation from './components/shared/Navigation';
 
 const App = () => (
   <BrowserRouter>
+    <Navigation />
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
