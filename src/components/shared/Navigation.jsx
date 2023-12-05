@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaAngellist,
 } from 'react-icons/fa';
+import AppointWheelsLogo from '../../assets/icons/AppointWheels.png';
 
 function Navigation() {
   const [isOpenHome, setIsOpenHome] = useState(false);
@@ -16,7 +17,7 @@ function Navigation() {
 
   return (
     <nav className="flex flex-col h-screen px-4 py-8 bg-white border-r-2 w-60 text-back">
-      <h1 className="mb-8 text-2xl font-bold text-center">Navigation</h1>
+      <img src={AppointWheelsLogo} alt="AppointWheels Logo" />
       <ul className="mt-32 font-semibold uppercase">
         <li className="mb-2">
           <NavLink to="/" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white text-xl pl-4" onClick={toggleOpenHome}>
