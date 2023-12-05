@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { IoKeyOutline } from 'react-icons/io5';
 import LoginBackground from '../../assets/images/login_background.jpg';
+import { createSession } from '../../redux/slices/loginSlice';
 
 function Login() {
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -11,7 +14,7 @@ function Login() {
         ...data,
       },
     };
-    console.log(userData);
+    dispatch(createSession(userData));
   };
 
   /* eslint-disable */

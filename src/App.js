@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import Login from './components/pages/Login';
 import NewCar from './components/pages/NewCar';
 import Rentals from './components/pages/Rentals';
