@@ -10,7 +10,6 @@ import CarDelete from './components/pages/CarDelete';
 import RentalNew from './components/pages/RentalNew';
 import SignUp from './components/pages/SignUp';
 import HomePage from './components/pages/HomePage';
-
 import ProtectedRoute from './components/ProtectedRoute';
 
 /* eslint-disable */
