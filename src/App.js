@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NotificationContainer } from 'react-notifications';
 import Login from './components/pages/Login';
 import NewCar from './components/pages/NewCar';
 import Rentals from './components/pages/Rentals';
@@ -10,6 +11,9 @@ import HomePage from './components/pages/HomePage';
 
 const App = () => (
   <BrowserRouter>
+    <header>
+      <NotificationContainer />
+    </header>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
