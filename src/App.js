@@ -11,9 +11,9 @@ import HomePage from './components/pages/HomePage';
 const App = () => (
   <BrowserRouter>
     <Routes>
+      <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/" element={<HomePage />} />
       <Route path="/new" element={<NewCar />} />
       <Route path="/delete" element={<CarDelete />} />
       <Route path="/detail" element={<CarDetail />} />
