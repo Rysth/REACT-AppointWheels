@@ -10,8 +10,7 @@ function ProtectedRoute({ isAuthenticated, children, redirectTo }) {
 
 ProtectedRoute.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  /* eslint-disable */
-  children: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
   redirectTo: PropTypes.string.isRequired,
 };
 
