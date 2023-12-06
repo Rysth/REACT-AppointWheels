@@ -1,61 +1,72 @@
+import { useDispatch } from "react-redux";
+import { addCar } from "../../redux/slices/carsSlice";
+import { useForm } from "react-hook-form";
+
 function NewCar() {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+
+  const submitAddCar = (data) => {
+    dispatch(addCar(data));
+  }
+  
   return (
     <section className="newCar">
       <h2>New Car</h2>
 
-      <form onSubmit={}>
+      <form onSubmit={handleSubmit(submitAddCar)}>
         <fieldset>
           <label htmlFor="text">Model Name:</label>
           <input
             type="text"
-            name="model"
+            {...register('model')}
             className="textFields"
-            value={}
+            required
           />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Number of Seats:</label>
           <input
             type="text"
-            name="seats"
+            {...register('seats')}
             className="textFields"
-            value={}
+            required
           />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Car Description:</label>
           <input
             type="text"
-            name="description"
+            {...register('description')}
             className="textFields"
-            value={}
+            required
           />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Price per day:</label>
           <input
             type="text"
-            name="price_per_day"
+            {...register('price_per_day')}
             className="textFields"
-            value={}
+            required
           />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Vehicle Type:</label>
           <input
             type="text"
-            name="vehicle_type"
+            {...register('vehicle_type')}
             className="textFields"
-            value={}
+            required
           />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Vehicle Image:</label>
           <input
             type="text"
-            name="image_url"
+            {...register('image_url')}
             className="textFields"
-            value={}
+            required
           />
         </fieldset>
         <button type="submit">Add New Car</button>
