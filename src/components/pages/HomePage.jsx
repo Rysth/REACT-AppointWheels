@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { LuArrowBigLeftDash, LuArrowBigRightDash } from 'react-icons/lu';
 
 const carArrays = [
@@ -27,9 +28,24 @@ const carArrays = [
 ];
 
 function HomePage() {
+  const [index, setIndex] = useState(0);
+  const [carsQuantity, setCarsQuantity] = useState(carArrays.length);
+
+  const increaseIndex = () => {
+    if (index < carsQuantity - 1) setIndex(index + 1);
+  };
+
+  const decreaseIndex = () => {
+    if (index > 0) setIndex(index - 1);
+  };
+
+  useEffect(() => {
+    setCarsQuantity(carArrays.length);
+  }, []);
+
   return (
     <section className="h-screen ">
-      <article className="flex flex-col items-center justify-center h-full gap-10 mx-auto ">
+      <article className="flex flex-col items-center justify-center h-full gap-10 mx-auto sm:gap-16">
         <header className="py-2 text-center">
           <h2 className="text-2xl font-black tracking-wider uppercase sm:text-3xl md:text-4xl">
             Lastest Models
@@ -44,20 +60,24 @@ function HomePage() {
         <div className="flex items-center justify-between w-full gap-5">
           <button
             type="button"
-            className="bg-[var(--green)] text-white p-5 rounded-r-full"
+            className={`bg-[var(--green)] text-white p-5 rounded-r-full ${
+              index === 0 && 'pointer-events-none bg-gray-400'
+            }`}
             aria-label="arrow left"
+            onClick={decreaseIndex}
           >
             <LuArrowBigLeftDash className="text-xl sm:text-3xl" />
           </button>
-          <ul className="grid flex-1 gap-2 sm:grid-cols-2 md:grid-cols-3 sm:gap-10">
-            {carArrays.map((car) => (
+          <ul className="grid flex-1 gap-2 md:grid-cols-3 sm:gap-10">
+            {carArrays.slice(index, 3 + index).map((car) => (
               <li key={car.id}>
                 <div className="flex flex-col items-center justify-center w-full h-full gap-5">
-                  <picture className="relative grid overflow-visible h-36 w-36 md:w-44 md:h-44 lg:w-56 lg:h-56 place-items-center">
+                  <picture className="relative grid overflow-visible sm:mb-10 place-items-center sm:px-5">
+                    <span className="absolute z-20 w-32 h-32 rounded-full bg-slate-200 md:w-36 md:h-36 xl:w-60 xl:h-60" />
                     <img
                       src={car.image_url}
                       alt=""
-                      className="absolute z-50 object-contain w-full h-full rounded-full bg-slate-200"
+                      className="z-50 object-contain w-full h-full rounded-full "
                     />
                   </picture>
                   <div className="px-10 text-center">
@@ -77,8 +97,11 @@ function HomePage() {
           </ul>
           <button
             type="button"
-            className="bg-[var(--green)] text-white p-5 rounded-l-full"
+            className={`bg-[var(--green)] text-white p-5 rounded-l-full ${
+              index === carsQuantity - 1 && 'pointer-events-none bg-gray-400'
+            }`}
             aria-label="arrow right"
+            onClick={increaseIndex}
           >
             <LuArrowBigRightDash className="text-xl sm:text-3xl" />
           </button>
