@@ -29,7 +29,7 @@ const carArrays = [
 function HomePage() {
   return (
     <section className="h-screen ">
-      <article className="flex flex-col items-center justify-center h-full max-w-screen-xl gap-10 mx-auto">
+      <article className="flex flex-col items-center justify-center h-full gap-10 mx-auto ">
         <header className="py-2 text-center">
           <h2 className="text-2xl font-black tracking-wider uppercase sm:text-3xl md:text-4xl">
             Lastest Models
@@ -37,6 +37,9 @@ function HomePage() {
           <h3 className="py-1 text-sm font-semibold text-gray-400 sm:text-base">
             Please select a Car Model
           </h3>
+          <p className="text-xl tracking-wider text-gray-200 sm:text-2xl">
+            .........................
+          </p>
         </header>
         <div className="flex items-center justify-between w-full gap-5">
           <button
@@ -46,27 +49,31 @@ function HomePage() {
           >
             <LuArrowBigLeftDash className="text-xl sm:text-3xl" />
           </button>
-          <ul className="grid flex-1 sm:grid-cols-3">
-            <li>
-              <div className="flex flex-col items-center justify-center w-full h-full gap-5 bg-cyan-200">
-                <picture className="relative h-44 w-44">
-                  <img
-                    src={carArrays[0].image_url}
-                    alt=""
-                    className="relative z-50 object-contain w-full h-full bg-black rounded-full"
-                  />
-                </picture>
-                <div className="grid gap-2 text-center">
-                  <h3 className="font-bold uppercase">{carArrays[0].model}</h3>
-                  <p className="overflow-hidden text-xs text-justify sm:text-sm max-h-12">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab
-                    impedit omnis natus voluptatem voluptas eos! Id facere
-                    delectus assumenda magnam quam. Est tempora quaerat
-                    repudiandae quas provident vitae doloremque asperiores!
-                  </p>
+          <ul className="grid flex-1 gap-2 sm:grid-cols-2 md:grid-cols-3 sm:gap-10">
+            {carArrays.map((car) => (
+              <li key={car.id}>
+                <div className="flex flex-col items-center justify-center w-full h-full gap-5">
+                  <picture className="relative grid overflow-visible h-36 w-36 md:w-44 md:h-44 lg:w-56 lg:h-56 place-items-center">
+                    <img
+                      src={car.image_url}
+                      alt=""
+                      className="absolute z-50 object-contain w-full h-full rounded-full bg-slate-200"
+                    />
+                  </picture>
+                  <div className="px-10 text-center">
+                    <h3 className="font-bold uppercase sm:text-md ">
+                      {car.model}
+                    </h3>
+                    <p className="mb-3 text-xl tracking-wider text-gray-200 sm:text-2xl ">
+                      .........................
+                    </p>
+                    <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-sm max-h-14">
+                      {car.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
           <button
             type="button"
