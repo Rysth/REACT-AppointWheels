@@ -1,15 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
 import { addCar } from '../../redux/slices/carsSlice';
 
 function NewCar() {
   const dispatch = useDispatch();
-  const navigator = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const submitAddCar = (data) => {
-    dispatch(addCar(data)).then(() => navigator('/'));
+    dispatch(addCar(data));
   };
 
   return (
