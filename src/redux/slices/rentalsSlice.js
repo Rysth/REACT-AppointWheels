@@ -5,24 +5,24 @@ const authTokenData = sessionStorage.getItem('authToken');
 
 // Async thunk to fetch rentals
 export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () => {
-  const response = await axios.get('/api/rentals', {
-    headers: { Authorization: `Bearer ${authTokenData}` },
+  const response = await axios.get('/api/v1/rentals', {
+    headers: { Authorization: authTokenData },
   });
   return response.data;
 });
 
 // Async thunk to create a rental
 export const createRental = createAsyncThunk('rentals/createRental', async (rental) => {
-  const response = await axios.post('/api/rentals', rental, {
-    headers: { Authorization: `Bearer ${authTokenData}` },
+  const response = await axios.post('/api/v1/rentals', rental, {
+    headers: { Authorization: authTokenData },
   });
   return response.data;
 });
 
 // Async thunk to delete a rental
 export const deleteRental = createAsyncThunk('rentals/deleteRental', async (id) => {
-  await axios.delete(`/api/rentals/${id}`, {
-    headers: { Authorization: `Bearer ${authTokenData}` },
+  await axios.delete(`/api/v1/rentals/${id}`, {
+    headers: { Authorization: authTokenData },
   });
   return id;
 });
@@ -34,12 +34,13 @@ const rentalsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRentals.fulfilled, (state, action) => action.payload)
+      .addCase(fetchRentals.fulfilled, (action) => action.payload)
       .addCase(createRental.fulfilled, (state, action) => {
         state.push(action.payload);
       })
-      // eslint-disable-next-line
-      .addCase(deleteRental.fulfilled, (state, action) => state.filter((rental) => rental.id !== action.payload));
+      .addCase(deleteRental.fulfilled, (state, action) => {
+        state.filter((rental) => rental.id !== action.payload);
+      });
   },
 });
 
