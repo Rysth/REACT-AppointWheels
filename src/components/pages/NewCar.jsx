@@ -14,9 +14,9 @@ function NewCar() {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="number">Number of Seats:</label>
+          <label htmlFor="text">Number of Seats:</label>
           <input
-            type="number"
+            type="text"
             name="seats"
             className="textFields"
             value={}

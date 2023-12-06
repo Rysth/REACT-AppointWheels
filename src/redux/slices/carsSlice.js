@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { NotificationManager } from 'react-notifications';
 import axios from 'axios';
 
 const authTokenData = sessionStorage.getItem('authToken');
@@ -11,7 +12,7 @@ export const fetchCars = createAsyncThunk('cars/index',
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${authTokenData}`,
+            Authorization: authTokenData,
           },
           withCredentials: true,
         },
@@ -22,6 +23,33 @@ export const fetchCars = createAsyncThunk('cars/index',
       throw new Error(error);
     }
   });
+
+export const addCar = createAsyncThunk('cars/addCar', async (car) => {
+  try {
+    const response = await axios.post(
+      'http://localhost:3001/api/v1/cars',
+      car,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: authTokenData,
+        },
+        withCredentials: true,
+      },
+    );
+
+    if (!response.status === 200) {
+      NotificationManager.error('Something went wrong!', 'Fail', 1250);
+      throw new Error('Error creating a new car');
+    }
+
+    NotificationManager.success('New Car Added!', 'Success', 1250);
+    const data = await response.data;
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 
 const initialState = {
   carsArray: [],
@@ -35,17 +63,11 @@ export const carsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCars.pending, (state) => {
-      console.log('aaaaaaaaaaaaaaaaaaaaa');
-      console.log('pending');
-      console.log(state);
       state.loading = true;
     });
     builder.addCase(fetchCars.fulfilled, (state, action) => {
-      console.log('fulfilled');
-      console.log(state);
       state.loading = false;
       state.carsArray = action.payload;
-      console.log(state.carsArray);
     });
   },
 });
