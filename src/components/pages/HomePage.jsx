@@ -57,7 +57,7 @@ function HomePage() {
           </button>
           <ul className="grid flex-1 gap-2 md:grid-cols-3 sm:gap-10">
             {carsArray.slice(index, 3 + index).map((car) => (
-              <Link to={`/${car.id}`} key={car}>
+              <Link to={`/car/${car.id}`} key={car.id}>
                 <li key={car.id}>
                   <div className="flex flex-col items-center justify-center w-full h-full gap-5">
                     <picture className="relative grid overflow-visible sm:mb-10 place-items-center sm:px-5">
