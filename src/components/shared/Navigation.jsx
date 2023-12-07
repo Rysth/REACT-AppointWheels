@@ -31,7 +31,7 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="mb-1">
-                <NavLink to="/cardelete" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white pl-4">
+                <NavLink to="/deletecar" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white pl-4">
                   Delete Car
                 </NavLink>
               </li>

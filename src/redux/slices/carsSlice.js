@@ -51,8 +51,35 @@ export const addCar = createAsyncThunk('cars/addCar', async (car) => {
   }
 });
 
+export const removeCar = createAsyncThunk('cars/removeCar', async (carId) => {
+  try {
+    const response = await axios.delete(
+      `http://localhost:3001/api/v1/cars/${carId}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: authTokenData,
+        },
+        withCredentials: true,
+      },
+    );
+
+    if (!response.status === 200) {
+      NotificationManager.error('Something went wrong!', 'Fail', 1250);
+      throw new Error('Error deleting the car');
+    }
+
+    NotificationManager.success('Car Deleted!', 'Success', 1250);
+    const data = await response.data;
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 const initialState = {
   carsArray: [],
+  length: 0,
   loading: true,
 };
 
@@ -68,6 +95,10 @@ export const carsSlice = createSlice({
     builder.addCase(fetchCars.fulfilled, (state, action) => {
       state.loading = false;
       state.carsArray = action.payload;
+      state.length = state.carsArray.length;
+    });
+    builder.addCase(removeCar.fulfilled, (state) => {
+      state.length -= 1;
     });
   },
 });
