@@ -79,6 +79,7 @@ export const removeCar = createAsyncThunk('cars/removeCar', async (carId) => {
 
 const initialState = {
   carsArray: [],
+  length: 0,
   loading: true,
 };
 
@@ -94,6 +95,10 @@ export const carsSlice = createSlice({
     builder.addCase(fetchCars.fulfilled, (state, action) => {
       state.loading = false;
       state.carsArray = action.payload;
+      state.length = state.carsArray.length;
+    });
+    builder.addCase(removeCar.fulfilled, (state) => {
+      state.length -= 1;
     });
   },
 });

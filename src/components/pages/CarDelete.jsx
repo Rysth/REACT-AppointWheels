@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars, removeCar } from '../../redux/slices/carsSlice';
 
 function CarDelete() {
-  const { carsArray, loading } = useSelector((store) => store.carsStore);
+  const { carsArray, length, loading } = useSelector((store) => store.carsStore);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCars());
-  }, [dispatch]);
+  }, [dispatch, length]);
 
   if (loading) {
     return (<div>Loading...</div>);
