@@ -14,9 +14,13 @@ function CarDelete() {
     return (<div>Loading...</div>);
   }
 
+  if (length === 0) {
+    return (<div>No Car Available</div>);
+  }
+
   return (
     <section className="carDelete">
-      <h1>Deleting Car</h1>
+      <h1>{`Total number of Cars: ${length}`}</h1>
       <div className="carDeleteList">
         {carsArray.map((car) => (
           <div className="car" key={car.id}>
