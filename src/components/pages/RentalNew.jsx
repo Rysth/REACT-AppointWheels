@@ -12,6 +12,10 @@ function RentalNew() {
   const [selectedCar, setSelectedCar] = useState('');
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   const { carsArray, loading } = useSelector((state) => state.carsStore);
+  const selectedCarObj = carsArray.find((car) => car.id === Number(selectedCar));
+  const pricePerDay = selectedCarObj ? selectedCarObj.price_per_day : 0;
+  const days = (new Date(endDate) - new Date(startDate)) / 86400000;
+  const totalPriceCalc = selectedCar && startDate && endDate ? `Total price: $${(pricePerDay * days).toFixed(2)}` : 'Total Price: $0.00';
 
   const cities = ['Barcelona', 'Madrid', 'Sevilla', 'Valencia', 'Bilbao'];
 
@@ -41,7 +45,11 @@ function RentalNew() {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <select id="car" value={selectedCar} onChange={(e) => setSelectedCar(e.target.value)}>
+          <select
+            id="car"
+            value={selectedCar}
+            onChange={(e) => setSelectedCar(e.target.value)}
+          >
             {carsArray.map((car) => (
               <option key={car.id} value={car.id}>
                 {car.model}
@@ -52,7 +60,10 @@ function RentalNew() {
       </label>
       <label htmlFor="city">
         City:
-        <select value={city} onChange={(e) => setCity(e.target.value)}>
+        <select
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        >
           {cities.map((city) => (
             <option key={city} value={city}>
               {city}
@@ -62,15 +73,30 @@ function RentalNew() {
       </label>
       <label htmlFor="startDate">
         Start Date:
-        <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+          required
+        />
       </label>
       <label htmlFor="endDate">
         End Date:
-        <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} required />
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          required
+        />
       </label>
       <label htmlFor="totalPrice">
-        Total Price:
-        <input type="number" value={totalPrice} onChange={(e) => setTotalPrice(e.target.value)} required />
+        {totalPriceCalc}
+        <input
+          type="number"
+          value={totalPriceCalc}
+          onChange={(e) => setTotalPrice(e.target.value)}
+          required
+        />
       </label>
       <button type="submit">Submit</button>
     </form>
