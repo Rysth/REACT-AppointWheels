@@ -10,9 +10,7 @@ import AppointWheelsLogo from '../../assets/icons/AppointWheels.png';
 
 function Navigation() {
   const [isOpenHome, setIsOpenHome] = useState(false);
-  const [isOpenRentals, setIsOpenRentals] = useState(false);
 
-  const toggleOpenRentals = () => setIsOpenRentals(!isOpenRentals);
   const toggleOpenHome = () => setIsOpenHome(!isOpenHome);
 
   return (
@@ -39,18 +37,14 @@ function Navigation() {
           )}
         </li>
         <li className="mb-2">
-          <NavLink to="/rentals" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white text-xl pl-4" onClick={toggleOpenRentals}>
-            Rentals
+          <NavLink to="/rentals" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white text-xl pl-4">
+            My Rentals
           </NavLink>
-          {isOpenRentals && (
-            <ul className="bg-slate-100">
-              <li className="mb-1">
-                <NavLink to="/rentalnew" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white pl-4">
-                  New Rental
-                </NavLink>
-              </li>
-            </ul>
-          )}
+        </li>
+        <li className="mb-2">
+          <NavLink to="/rental/new" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white text-xl pl-4">
+            New Rental
+          </NavLink>
         </li>
       </ul>
       <div className="flex justify-center mt-auto">
