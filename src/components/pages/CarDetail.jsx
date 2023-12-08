@@ -132,12 +132,11 @@ function CarDetail() {
                   endDate={endDate}
                   selectsRange
                   inline
-                  required
                 />
               </fieldset>
               <fieldset>
-                <select {...register('city')}>
-                  <option value="salta" disabled selected>Select a city</option>
+                <select required {...register('city')}>
+                  <option value="" disabled selected>Select a city</option>
                   {cities.map((city) => (
                     <option key={city.id} value={city.name}>
                       {city.name}
