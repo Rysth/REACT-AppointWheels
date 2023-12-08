@@ -15,7 +15,7 @@ function RentalNew() {
   const selectedCarObj = carsArray.find((car) => car.id === Number(selectedCar));
   const pricePerDay = selectedCarObj ? selectedCarObj.price_per_day : 0;
   const days = (new Date(endDate) - new Date(startDate)) / 86400000;
-  const totalPriceCalc = selectedCar && startDate && endDate ? `Total price: $${(pricePerDay * days).toFixed(2)}` : 'Total Price: $0.00';
+  const totalPriceCalc = selectedCar && startDate && endDate ? (pricePerDay * days).toFixed(2) : 0;
 
   const cities = ['Barcelona', 'Madrid', 'Sevilla', 'Valencia', 'Bilbao'];
 
@@ -39,67 +39,81 @@ function RentalNew() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="car">
-        Car:
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <select
-            id="car"
-            value={selectedCar}
-            onChange={(e) => setSelectedCar(e.target.value)}
-          >
-            {carsArray.map((car) => (
-              <option key={car.id} value={car.id}>
-                {car.model}
-              </option>
-            ))}
-          </select>
-        )}
-      </label>
-      <label htmlFor="city">
-        City:
-        <select
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        >
-          {cities.map((city) => (
-            <option key={city} value={city}>
-              {city}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label htmlFor="startDate">
-        Start Date:
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          required
-        />
-      </label>
-      <label htmlFor="endDate">
-        End Date:
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          required
-        />
-      </label>
-      <label htmlFor="totalPrice">
-        {totalPriceCalc}
-        <input
-          type="number"
-          value={totalPriceCalc}
-          onChange={(e) => setTotalPrice(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <section className="flex items-center justify-center h-screen w-screen bg-[var(--green)]">
+      <form onSubmit={handleSubmit}>
+        <div className="flex justify-center mb-4 space-x-4">
+          <label htmlFor="car">
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <select
+                id="car"
+                value={selectedCar}
+                onChange={(e) => setSelectedCar(e.target.value)}
+                required
+                className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+              >
+                <option value="">Select a Car</option>
+                {carsArray.map((car) => (
+                  <option key={car.id} value={car.id}>
+                    {car.model}
+                  </option>
+                ))}
+              </select>
+            )}
+          </label>
+          <label htmlFor="city">
+            <select
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+            >
+              <option value="">Select a City</option>
+              {cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <label htmlFor="startDate" className="text-white">
+          Start Date:
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            required
+            className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+          />
+        </label>
+        <label htmlFor="endDate" className="text-white">
+          End Date:
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            required
+            className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+          />
+        </label>
+        <label htmlFor="totalPrice" className="text-white">
+          Total Price: $
+          <input
+            type="number"
+            value={totalPriceCalc}
+            onChange={(e) => setTotalPrice(e.target.value)}
+            required
+            readOnly
+            className="w-28 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+          />
+        </label>
+        <div className="flex items-center justify-center">
+          <button type="submit" className="w-44 px-4 py-2 mt-8 font-bold bg-white rounded-3xl text-[var(--green)]">Submit</button>
+        </div>
+      </form>
+    </section>
   );
 }
 
