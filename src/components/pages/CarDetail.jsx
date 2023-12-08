@@ -2,11 +2,12 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ReactDatePicker from 'react-datepicker';
 import { IoKeyOutline } from 'react-icons/io5';
 import { useForm } from 'react-hook-form';
 import { current } from '@reduxjs/toolkit';
+import { LuArrowBigLeftDash } from 'react-icons/lu';
 import { fetchCars } from '../../redux/slices/carsSlice';
 import { createRental } from '../../redux/slices/rentalsSlice';
 
@@ -90,14 +91,26 @@ function CarDetail() {
   return (
     <section className="h-screen">
       <article className="flex flex-row items-center justify-center h-full gap-10 mx-auto sm:gap-16">
-        <picture className="relative grid overflow-visible sm:mb-10 place-items-center sm:px-5">
-          <span className="absolute z-20 w-32 h-32 rounded-full bg-slate-200 md:w-36 md:h-36 xl:w-60 xl:h-60" />
-          <img
-            src={car.image_url}
-            alt=""
-            className="z-50 object-contain w-full h-full rounded-full "
-          />
-        </picture>
+        <div>
+          <picture className="relative grid overflow-visible sm:mb-10 place-items-center sm:px-5">
+            <span className="absolute z-20 w-32 h-32 rounded-full bg-slate-200 md:w-36 md:h-36 xl:w-60 xl:h-60" />
+            <img
+              src={car.image_url}
+              alt=""
+              className="z-50 object-contain w-full h-full rounded-full "
+            />
+          </picture>
+          <Link to="/" key={car.id}>
+            <button
+              type="button"
+              className="bg-[var(--green)] text-white p-5 rounded-r-full"
+              aria-label="arrow left"
+            >
+              <LuArrowBigLeftDash className="text-xl sm:text-3xl" />
+            </button>
+          </Link>
+
+        </div>
         <div className="flex flex-col items-end justify-center w-full h-full mr-10">
           <h2 className="pb-8 text-xl font-bold uppercase sm:text-md">{car.model}</h2>
           <div className="flex flex-row justify-between w-full p-2 bg-slate-300">
