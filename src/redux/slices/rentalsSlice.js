@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { NotificationManager } from 'react-notifications';
 
 const authTokenData = sessionStorage.getItem('authToken');
 const user = JSON.parse(sessionStorage.getItem('userCredentials'));
@@ -12,12 +13,17 @@ export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () =>
   return response.data;
 });
 
-// Async thunk to create a rental
 export const createRental = createAsyncThunk('rentals/createRental', async (rental) => {
-  const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
-    headers: { Authorization: authTokenData },
-  });
-  return response.data;
+  try {
+    const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
+      headers: { Authorization: authTokenData },
+    });
+    NotificationManager.success('Rented!', 'Exito', 1250);
+    return response.data;
+  } catch (error) {
+    NotificationManager.error('Rent failed', 'Fail', 1250);
+    throw new Error('Error logging out');
+  }
 });
 
 // Async thunk to delete a rental
