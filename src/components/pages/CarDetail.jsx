@@ -70,19 +70,19 @@ function CarDetail() {
   }, [calculateTotalDays]);
 
   const submitAddRent = (data) => {
-    const rentStart = formatAsDDMMYYYY(startDate);
-    const rentEnd = formatAsDDMMYYYY(endDate);
-    const formData = {
-      ...data,
-      start_date: rentStart,
-      end_date: rentEnd,
-      total_price: amount,
-      car_id: id,
-      user_id: user.id,
-    };
-
-    console.log(formData);
-    dispatch(createRental(formData));
+    if (startDate && endDate) {
+      const rentStart = formatAsDDMMYYYY(startDate);
+      const rentEnd = formatAsDDMMYYYY(endDate);
+      const formData = {
+        ...data,
+        start_date: rentStart,
+        end_date: rentEnd,
+        total_price: amount,
+        car_id: id,
+        user_id: user.id,
+      };
+      dispatch(createRental(formData));
+    }
   };
 
   if (loading) { return (<div>loading</div>); }
