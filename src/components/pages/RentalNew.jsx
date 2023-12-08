@@ -33,7 +33,7 @@ function RentalNew() {
       end_date: endDate,
       total_price: totalPrice,
       user_id: user.id,
-      car_id: selectedCar,
+      car_id: parseInt(selectedCar, 10),
     };
     dispatch(createRental(rental));
   };
