@@ -60,7 +60,7 @@ export const destroySession = createAsyncThunk(
         throw new Error('Error logging out');
       }
 
-      NotificationManager.success('Thank you!', 'Exito', 1250);
+      NotificationManager.success('Thank you!', 'Success', 1250);
     } catch (error) {
       NotificationManager.error('Incorrect Logout', 'Fail', 1250);
       throw new Error('Error logging out');
