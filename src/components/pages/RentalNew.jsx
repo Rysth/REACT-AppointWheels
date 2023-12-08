@@ -42,7 +42,7 @@ function RentalNew() {
     <section className="flex items-center justify-center h-screen w-screen bg-[var(--green)]">
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center mb-4 space-x-4">
-          <label htmlFor="car">
+          <label htmlFor="car" className="flex">
             {loading ? (
               <p>Loading...</p>
             ) : (
@@ -62,7 +62,7 @@ function RentalNew() {
               </select>
             )}
           </label>
-          <label htmlFor="city">
+          <label htmlFor="city" className="flex">
             <select
               value={city}
               onChange={(e) => setCity(e.target.value)}
@@ -78,37 +78,39 @@ function RentalNew() {
             </select>
           </label>
         </div>
-        <label htmlFor="startDate" className="text-white">
-          Start Date:
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            required
-            className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
-          />
-        </label>
-        <label htmlFor="endDate" className="text-white">
-          End Date:
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            required
-            className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
-          />
-        </label>
-        <label htmlFor="totalPrice" className="text-white">
-          Total Price: $
-          <input
-            type="number"
-            value={totalPriceCalc}
-            onChange={(e) => setTotalPrice(e.target.value)}
-            required
-            readOnly
-            className="w-28 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
-          />
-        </label>
+        <div className="space-x-4">
+          <label htmlFor="startDate" className="text-white">
+            Start Date: &nbsp;
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              required
+              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </label>
+          <label htmlFor="endDate" className="mr-2 text-white">
+            End Date: &nbsp;
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              required
+              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </label>
+          <label htmlFor="totalPrice" className="text-white">
+            Total Price: $ &nbsp;
+            <input
+              type="number"
+              value={totalPriceCalc}
+              onChange={(e) => setTotalPrice(e.target.value)}
+              required
+              readOnly
+              className="w-28 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+            />
+          </label>
+        </div>
         <div className="flex items-center justify-center">
           <button type="submit" className="w-44 px-4 py-2 mt-8 font-bold bg-white rounded-3xl text-[var(--green)]">Submit</button>
         </div>
