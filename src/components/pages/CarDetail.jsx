@@ -1,8 +1,14 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ReactDatePicker from 'react-datepicker';
+import { IoKeyOutline } from 'react-icons/io5';
+import { useForm } from 'react-hook-form';
+import { current } from '@reduxjs/toolkit';
 import { fetchCars } from '../../redux/slices/carsSlice';
+import { createRental } from '../../redux/slices/rentalsSlice';
 
 function CarDetail() {
   const dispatch = useDispatch();
@@ -14,7 +20,13 @@ function CarDetail() {
   const [endDate, setEndDate] = useState(null);
   const [totalDays, setTotalDays] = useState();
   const [amount, setAmount] = useState();
-
+  const cities = [
+    { name: 'Salta' },
+    { name: 'Cordoba' },
+    { name: 'Buenos Aires' },
+  ];
+  const user = JSON.parse(sessionStorage.getItem('userCredentials'));
+  const { register, handleSubmit } = useForm();
   useEffect(() => {
     if (loading) {
       dispatch(fetchCars());
@@ -35,6 +47,14 @@ function CarDetail() {
     }
   };
 
+  const formatAsDDMMYYYY = (date) => {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  };
+
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -48,6 +68,22 @@ function CarDetail() {
   useEffect(() => {
     calculateTotalAmout();
   }, [calculateTotalDays]);
+
+  const submitAddRent = (data) => {
+    const rentStart = formatAsDDMMYYYY(startDate);
+    const rentEnd = formatAsDDMMYYYY(endDate);
+    const formData = {
+      ...data,
+      start_date: rentStart,
+      end_date: rentEnd,
+      total_price: amount,
+      car_id: id,
+      user_id: user.id,
+    };
+
+    console.log(formData);
+    dispatch(createRental(formData));
+  };
 
   if (loading) { return (<div>loading</div>); }
 
@@ -87,14 +123,38 @@ function CarDetail() {
             <p className="text-xs text-center sm:text-sm max-h-14">{totalDays}</p>
           </div>
           <div className="flex flex-row justify-between w-full p-2">
-            <ReactDatePicker
-              selected={startDate}
-              onChange={onChange}
-              startDate={startDate}
-              endDate={endDate}
-              selectsRange
-              inline
-            />
+            <form onSubmit={handleSubmit(submitAddRent)}>
+              <fieldset>
+                <ReactDatePicker
+                  selected={startDate}
+                  onChange={onChange}
+                  startDate={startDate}
+                  endDate={endDate}
+                  selectsRange
+                  inline
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <select {...register('city')}>
+                  <option value="salta" disabled selected>Select a city</option>
+                  {cities.map((city) => (
+                    <option key={city.id} value={city.name}>
+                      {city.name}
+                    </option>
+                  ))}
+                </select>
+              </fieldset>
+              <fieldset className="flex items-center justify-end gap-1">
+                <button
+                  type="submit"
+                  className="float-right w-full btn btn-primary"
+                >
+                  Rent
+                  <IoKeyOutline className="text-xl" />
+                </button>
+              </fieldset>
+            </form>
           </div>
         </div>
       </article>
