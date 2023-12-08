@@ -81,7 +81,7 @@ const App = () => {
             )}
           />
           <Route
-            path="/rentals/new"
+            path="/rental/new"
             element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <RentalNew />
