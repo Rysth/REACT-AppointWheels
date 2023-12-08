@@ -18,7 +18,7 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
     const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
       headers: { Authorization: authTokenData },
     });
-    NotificationManager.success('Rented!', 'Exito', 1250);
+    NotificationManager.success('Rented!', 'Success', 1250);
     return response.data;
   } catch (error) {
     NotificationManager.error('Rent failed', 'Fail', 1250);
