@@ -11,15 +11,15 @@ function CarDelete() {
   }, [dispatch, length]);
 
   if (loading) {
-    return (<div>Loading...</div>);
+    return <div>Loading...</div>;
   }
 
   if (length === 0) {
-    return (<div>No Car Available</div>);
+    return <div>No Car Available</div>;
   }
 
   return (
-    <section className="carDelete">
+    <section className=" carDelete">
       <h1>{`Total number of Cars: ${length}`}</h1>
       <div className="carDeleteList">
         {carsArray.map((car) => (
@@ -29,7 +29,13 @@ function CarDelete() {
               <h3>{car.model}</h3>
               <p>{car.description}</p>
             </div>
-            <button type="button" className="btn btn-primary" onClick={() => dispatch(removeCar(car.id))}>Delete</button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => dispatch(removeCar(car.id))}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
