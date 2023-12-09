@@ -56,7 +56,6 @@ const rentalsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchRentals.pending, (state) => {
-        console.log('aaaaaaaaaaaaaaaaaaa');
         state.loading = true;
       })
       .addCase(fetchRentals.fulfilled, (state, action) => {
