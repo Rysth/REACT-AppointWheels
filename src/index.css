@@ -6,6 +6,7 @@
 
 :root {
   --green: #96bf01;
+  --red: #e02c1f;
 }
 
 body {
@@ -23,6 +24,10 @@ body {
 
 .btn-secondary {
   @apply bg-white text-[var(--green)];
+}
+
+.btn-danger {
+  @apply bg-[var(--red)];
 }
 
 .active {

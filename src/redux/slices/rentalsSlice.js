@@ -28,17 +28,24 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
 });
 
 // Async thunk to delete a rental
-export const deleteRental = createAsyncThunk('rentals/deleteRental', async (id) => {
-  await axios.delete(`http://localhost:3001/api/v1/users/${user.id}/rentals/${id}`, {
-    headers: { Authorization: authTokenData },
-    withCredentials: true,
-  });
-  return id;
+export const cancelRental = createAsyncThunk('rentals/deleteRental', async (id) => {
+  try {
+    await axios.delete(`http://localhost:3001/api/v1/users/${user.id}/rentals/${id}`, {
+      headers: { Authorization: authTokenData },
+      withCredentials: true,
+    });
+    NotificationManager.success('Rent Canceled', 'Success', 1250);
+    return id;
+  } catch (error) {
+    NotificationManager.error('Rent not Cancelled', 'Fail', 1250);
+    throw new Error('Error Canceling Rental');
+  }
 });
 
 const initialState = {
   rentalArray: [],
   loading: true,
+  length: 0,
 };
 
 // Rentals slice
@@ -48,15 +55,21 @@ const rentalsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchRentals.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(fetchRentals.fulfilled, (state, action) => {
         state.rentalArray = action.payload;
         state.loading = false;
       })
       .addCase(createRental.fulfilled, (state, action) => {
         state.rentalArray.push(action.payload);
+        state.loading = true;
+        state.length += 1;
       })
-      .addCase(deleteRental.fulfilled, (state, action) => {
+      .addCase(cancelRental.fulfilled, (state, action) => {
         state.rentalArray.filter((rental) => rental.id !== action.payload);
+        state.length -= 1;
       });
   },
 });
