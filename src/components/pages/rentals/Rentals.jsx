@@ -12,9 +12,22 @@ function Rentals() {
   if (loading) {
     return <p>loading...</p>;
   }
+
+  if (length === 0) {
+    return (
+      <section className="h-screen ">
+        <div className="flex flex-row">
+          <h1 className="text-2xl font-black tracking-wider uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="h-screen ">
-      <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
+    <section className="w-full h-screen">
+      <div className="items-center ">
+        <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
+      </div>
       {rentalArray.map((rent) => (
         <div key={rent.id} className="flex flex-col items-center justify-center">
           <div className="flex flex-row items-center justify-center">
