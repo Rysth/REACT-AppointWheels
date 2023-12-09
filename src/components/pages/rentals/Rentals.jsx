@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cancelRental, fetchRentals } from '../../../redux/slices/rentalsSlice';
 
 function Rentals() {
-  const { rentalArray, loading } = useSelector((store) => store.rentalsStore);
+  const { rentalArray, loading, length } = useSelector((store) => store.rentalsStore);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log('fetching');
     dispatch(fetchRentals());
-  }, [dispatch]);
+  }, [dispatch, length]);
 
   if (loading) {
     return <p>loading...</p>;
