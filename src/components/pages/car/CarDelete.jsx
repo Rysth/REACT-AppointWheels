@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCars, removeCar } from '../../redux/slices/carsSlice';
+import { fetchCars, removeCar } from '../../../redux/slices/carsSlice';
 
 function CarDelete() {
   const { carsArray, length, loading } = useSelector((store) => store.carsStore);

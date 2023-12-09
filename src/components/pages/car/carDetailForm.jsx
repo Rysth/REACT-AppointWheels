@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoKeyOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { createRental } from '../../redux/slices/rentalsSlice';
+import { createRental } from '../../../redux/slices/rentalsSlice';
 import ReactDatePicker from 'react-datepicker';
 
-function CarDetailForm({ id, car }) {
+function CarDetailForm({ car }) {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
@@ -68,7 +68,7 @@ function CarDetailForm({ id, car }) {
         start_date: rentStart,
         end_date: rentEnd,
         total_price: amount,
-        car_id: id,
+        car_id: car.id,
         user_id: user.id,
       };
       dispatch(createRental(formData));
