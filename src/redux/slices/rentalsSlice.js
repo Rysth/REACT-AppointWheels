@@ -28,7 +28,7 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
 });
 
 // Async thunk to delete a rental
-export const deleteRental = createAsyncThunk('rentals/deleteRental', async (id) => {
+export const cancelRental = createAsyncThunk('rentals/deleteRental', async (id) => {
   await axios.delete(`http://localhost:3001/api/v1/users/${user.id}/rentals/${id}`, {
     headers: { Authorization: authTokenData },
     withCredentials: true,
@@ -48,14 +48,19 @@ const rentalsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchRentals.pending, (state) => {
+        console.log('aaaaaaaaaaaaaaaaaaa');
+        state.loading = true;
+      })
       .addCase(fetchRentals.fulfilled, (state, action) => {
         state.rentalArray = action.payload;
         state.loading = false;
       })
       .addCase(createRental.fulfilled, (state, action) => {
         state.rentalArray.push(action.payload);
+        state.loading = true;
       })
-      .addCase(deleteRental.fulfilled, (state, action) => {
+      .addCase(cancelRental.fulfilled, (state, action) => {
         state.rentalArray.filter((rental) => rental.id !== action.payload);
       });
   },
