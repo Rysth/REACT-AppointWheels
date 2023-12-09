@@ -23,7 +23,7 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
     return response.data;
   } catch (error) {
     NotificationManager.error('Rent failed', 'Fail', 1250);
-    throw new Error('Error logging out');
+    throw new Error('Error Creating Rental');
   }
 });
 
@@ -36,19 +36,27 @@ export const deleteRental = createAsyncThunk('rentals/deleteRental', async (id) 
   return id;
 });
 
+const initialState = {
+  rentalArray: [],
+  loading: true,
+};
+
 // Rentals slice
 const rentalsSlice = createSlice({
   name: 'rentals',
-  initialState: [],
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRentals.fulfilled, (action) => action.payload)
+      .addCase(fetchRentals.fulfilled, (state, action) => {
+        state.rentalArray = action.payload;
+        state.loading = false;
+      })
       .addCase(createRental.fulfilled, (state, action) => {
-        state.push(action.payload);
+        state.rentalArray.push(action.payload);
       })
       .addCase(deleteRental.fulfilled, (state, action) => {
-        state.filter((rental) => rental.id !== action.payload);
+        state.rentalArray.filter((rental) => rental.id !== action.payload);
       });
   },
 });

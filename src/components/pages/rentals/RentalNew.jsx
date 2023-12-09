@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createRental } from '../../redux/slices/rentalsSlice';
-import { fetchCars } from '../../redux/slices/carsSlice';
+import { createRental } from '../../../redux/slices/rentalsSlice';
+import { fetchCars } from '../../../redux/slices/carsSlice';
 
 function RentalNew() {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ function RentalNew() {
         <div className="flex justify-center mb-4 space-x-4">
           <label htmlFor="car" className="flex">
             {loading ? (
-              <p>Loading...</p>
+              <p>loading...</p>
             ) : (
               <select
                 id="car"

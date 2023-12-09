@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { LuArrowBigLeftDash } from 'react-icons/lu';
-import { fetchCars } from '../../redux/slices/carsSlice';
+import { fetchCars } from '../../../redux/slices/carsSlice';
 import CarDetailForm from './carDetailForm';
 
 function CarDetail() {
