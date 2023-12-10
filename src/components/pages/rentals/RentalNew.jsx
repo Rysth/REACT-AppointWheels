@@ -41,7 +41,7 @@ function RentalNew() {
   return (
     <section className="flex items-center justify-center h-screen w-screen bg-[var(--green)]">
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center mb-4 space-x-4">
+        <div className="flex justify-center mb-4 md:space-x-4">
           <label htmlFor="car" className="flex">
             {loading ? (
               <p>loading...</p>
@@ -78,25 +78,25 @@ function RentalNew() {
             </select>
           </label>
         </div>
-        <div className="space-x-4">
-          <label htmlFor="startDate" className="text-white">
-            Start Date: &nbsp;
+        <div className="flex flex-col md:block">
+          <label htmlFor="startDate" className="text-white md:flex-row md:flex">
+            Start Date &nbsp;
             <input
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               required
-              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
-          <label htmlFor="endDate" className="mr-2 text-white">
-            End Date: &nbsp;
+          <label htmlFor="endDate" className="flex flex-row mr-2 text-white">
+            End Date &nbsp;
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               required
-              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
           <label htmlFor="totalPrice" className="text-white">
@@ -107,7 +107,7 @@ function RentalNew() {
               onChange={(e) => setTotalPrice(e.target.value)}
               required
               readOnly
-              className="w-28 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-28 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
         </div>
