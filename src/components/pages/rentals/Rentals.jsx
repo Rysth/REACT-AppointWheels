@@ -3,28 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cancelRental, fetchRentals } from '../../../redux/slices/rentalsSlice';
 
 function Rentals() {
-  const { rentalArray, loading, length } = useSelector((store) => store.rentalsStore);
+  const { rentalArray, loading } = useSelector((store) => store.rentalsStore);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchRentals());
-  }, [dispatch, length]);
+    if (loading) {
+      dispatch(fetchRentals());
+    }
+  }, [dispatch, loading]);
 
   if (loading) {
     return <p>loading...</p>;
   }
 
-  if (length === 0) {
-    return (
-      <section className="h-screen ">
-        <div className="flex flex-row">
-          <h1 className="text-2xl font-black tracking-wider uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="w-full h-screen">
+    <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
       <div className="items-center ">
         <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
       </div>

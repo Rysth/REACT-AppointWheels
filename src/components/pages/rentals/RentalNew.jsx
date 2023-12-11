@@ -109,7 +109,7 @@ function RentalNew() {
           <label htmlFor="totalPrice" className="text-white">
             Total Price: $ &nbsp;
             <input
-              type="number"
+              type="text"
               value={totalPriceCalc}
               onChange={(e) => setTotalPrice(e.target.value)}
               required

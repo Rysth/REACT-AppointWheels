@@ -87,8 +87,8 @@ function Navigation() {
         </div>
         )}
       </nav>
-      <nav className="hidden sm:block">
-        <div className="flex flex-col h-screen py-8 bg-white shadow-xl min-w-[13rem] max-w-[13rem] text-back">
+      <nav className="hidden md:block md:fixed md:w-1/5">
+        <div className="flex flex-col h-screen py-8 bg-white shadow-xl text-back">
           <picture>
             <img
               src={AppointWheelsLogo}

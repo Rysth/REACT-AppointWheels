@@ -11,7 +11,7 @@ function HomePage() {
   }, [dispatch]);
 
   return (
-    <section className="w-full h-screen">
+    <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
       <article className="flex flex-col items-center justify-center h-full gap-10 mx-auto">
         <header className="py-2 text-center">
           <h2 className="text-2xl font-black tracking-wider uppercase sm:text-3xl md:text-4xl">
