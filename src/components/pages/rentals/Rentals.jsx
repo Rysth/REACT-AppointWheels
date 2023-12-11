@@ -16,7 +16,7 @@ function Rentals() {
   }
 
   return (
-    <section className="w-full h-screen">
+    <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
       <div className="items-center ">
         <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
       </div>

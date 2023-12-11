@@ -39,7 +39,7 @@ function RentalNew() {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen w-screen bg-[var(--green)]">
+    <section className="flex items-center justify-center h-screen w-screen bg-[var(--green)] md:w-4/5 md:absolute md:right-0">
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center mb-4 md:space-x-4">
           <label htmlFor="car" className="flex">
@@ -102,7 +102,7 @@ function RentalNew() {
           <label htmlFor="totalPrice" className="text-white">
             Total Price: $ &nbsp;
             <input
-              type="number"
+              type="text"
               value={totalPriceCalc}
               onChange={(e) => setTotalPrice(e.target.value)}
               required

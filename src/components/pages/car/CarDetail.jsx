@@ -22,7 +22,7 @@ function CarDetail() {
   if (loading) { return (<div>loading</div>); }
 
   return (
-    <section className="h-screen">
+    <section className="h-screen md:w-4/5 md:absolute md:right-0">
       <article className="flex flex-row items-center justify-center h-full gap-10 mx-auto sm:gap-16">
         <div className="flex flex-col gap-10">
           <picture className="relative grid overflow-visible sm:mb-10 place-items-center sm:px-5">
