@@ -89,7 +89,7 @@ export const registerUser = createAsyncThunk(
         throw new Error('Error registering user');
       }
 
-      NotificationManager.success('Sign Up Successfully!', 'Success', 1250);
+      NotificationManager.success('Registered Successfully!', 'Success', 1250);
       return { ...response.data, ...response.headers };
     } catch (error) {
       NotificationManager.error('Something went wrong', 'Fail', 1250);
