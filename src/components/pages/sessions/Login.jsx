@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { IoKeyOutline } from 'react-icons/io5';
 import LoginBackground from '../../../assets/images/login_background.jpg';
 import { createSession } from '../../../redux/slices/loginSlice';
@@ -79,6 +80,7 @@ function Login() {
               </button>
             </fieldset>
           </form>
+          <Link to="/signup" className="underline text-[var(--green)]">New to Appoint Wheels? Register here</Link>
         </article>
       </div>
     </section>

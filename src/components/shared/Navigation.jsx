@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 /* prettier-ignore */
 import {
   FaGithub,
@@ -9,13 +10,20 @@ import {
 } from 'react-icons/fa';
 import AppointWheelsLogo from '../../assets/icons/AppointWheels.png';
 import BurgerMenu from './BurgerMenu';
+import { destroySession } from '../../redux/slices/loginSlice';
 
 function Navigation() {
+  const dispatch = useDispatch();
+  const userToken = sessionStorage.getItem('authToken');
   const [isOpenHome, setIsOpenHome] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const toggleOpenHome = () => setIsOpenHome(!isOpenHome);
   const toggleOpenMenu = () => setIsOpenMenu(!isOpenMenu);
+
+  const logoutSubmit = () => {
+    dispatch(destroySession(userToken));
+  };
 
   return (
     <>
