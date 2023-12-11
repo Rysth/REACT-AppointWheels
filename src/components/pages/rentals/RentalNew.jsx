@@ -8,7 +8,7 @@ function RentalNew() {
   const [city, setCity] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [setTotalPrice] = useState(0);
   const [selectedCar, setSelectedCar] = useState('');
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   const { carsArray, loading } = useSelector((state) => state.carsStore);
@@ -31,7 +31,7 @@ function RentalNew() {
       city,
       start_date: startDate,
       end_date: endDate,
-      total_price: totalPrice,
+      total_price: totalPriceCalc,
       user_id: user.id,
       car_id: parseInt(selectedCar, 10),
     };
@@ -39,19 +39,23 @@ function RentalNew() {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen w-screen bg-[var(--green)] md:w-4/5 md:absolute md:right-0">
-      <form onSubmit={handleSubmit}>
-        <div className="flex justify-center mb-4 md:space-x-4">
+    <section className="flex flex-col overlay items-center justify-center h-screen w-screen bg-[url('https://jzheng100823.github.io/hicproj/images/ToyotaCamry.png')] bg-[var(--green)] bg-contain bg-no-repeat bg-center">
+      <h2 className="mb-20 text-3xl font-bold tracking-widest text-white">
+        RENT A TOYOTA
+        <hr className="border-1 border-x-gray-700" />
+      </h2>
+      <form onSubmit={handleSubmit} className="">
+        <div className="flex flex-col justify-center mb-4 md:space-x-4">
           <label htmlFor="car" className="flex">
             {loading ? (
-              <p>loading...</p>
+              <p className="loader">Loading...</p>
             ) : (
               <select
                 id="car"
                 value={selectedCar}
                 onChange={(e) => setSelectedCar(e.target.value)}
                 required
-                className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+                className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
               >
                 <option value="">Select a Car</option>
                 {carsArray.map((car) => (
@@ -67,7 +71,7 @@ function RentalNew() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
-              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             >
               <option value="">Select a City</option>
               {cities.map((city) => (
@@ -82,7 +86,10 @@ function RentalNew() {
           <label htmlFor="startDate" className="text-white md:flex-row md:flex">
             Start Date &nbsp;
             <input
+              id="startDate"
+              name="startDate"
               type="date"
+              placeholder="Start Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               required
