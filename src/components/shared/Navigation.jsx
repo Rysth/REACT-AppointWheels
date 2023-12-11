@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import {
   FaGithub,
   FaLinkedin,
@@ -7,11 +8,18 @@ import {
   FaAngellist,
 } from 'react-icons/fa';
 import AppointWheelsLogo from '../../assets/icons/AppointWheels.png';
+import { destroySession } from '../../redux/slices/loginSlice';
 
 function Navigation() {
+  const dispatch = useDispatch();
+  const userToken = sessionStorage.getItem('authToken');
   const [isOpenHome, setIsOpenHome] = useState(false);
 
   const toggleOpenHome = () => setIsOpenHome(!isOpenHome);
+
+  const logoutSubmit = () => {
+    dispatch(destroySession(userToken));
+  };
 
   return (
     <nav className="flex flex-col h-screen px-4 py-8 bg-white border-r-2 w-60 text-back">
@@ -45,6 +53,11 @@ function Navigation() {
           <NavLink to="/rental/new" activeClassName="bg-[var(--green)]" className="block py-1 hover:bg-[var(--green)] hover:text-white text-xl pl-4">
             New Rental
           </NavLink>
+        </li>
+        <li className="mb-2">
+          <button type="button" className="block text-left w-full py-1 hover:bg-[var(--red)] hover:text-white text-xl pl-4" onClick={logoutSubmit}>
+            Logout
+          </button>
         </li>
       </ul>
       <div className="flex justify-center mt-auto">
