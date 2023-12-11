@@ -3,18 +3,24 @@ import axios from 'axios';
 import { NotificationManager } from 'react-notifications';
 
 const authTokenData = sessionStorage.getItem('authToken');
-const user = JSON.parse(sessionStorage.getItem('userCredentials'));
 
 // Async thunk to fetch rentals
 export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () => {
-  const response = await axios.get(`http://localhost:3001/api/v1/users/${user.id}/rentals`, {
-    headers: { Authorization: authTokenData },
-    withCredentials: true,
-  });
-  return response.data;
+  const user = JSON.parse(sessionStorage.getItem('userCredentials'));
+  try {
+    const response = await axios.get(`http://localhost:3001/api/v1/users/${user.id}/rentals`, {
+      headers: { Authorization: authTokenData },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    NotificationManager.error('fetch failed', 'Fail', 1250);
+    throw new Error('Error Fetching Rentals');
+  }
 });
 
 export const createRental = createAsyncThunk('rentals/createRental', async (rental) => {
+  const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   try {
     const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
       headers: { Authorization: authTokenData },
@@ -29,6 +35,7 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
 
 // Async thunk to delete a rental
 export const cancelRental = createAsyncThunk('rentals/deleteRental', async (id) => {
+  const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   try {
     await axios.delete(`http://localhost:3001/api/v1/users/${user.id}/rentals/${id}`, {
       headers: { Authorization: authTokenData },
@@ -61,14 +68,14 @@ const rentalsSlice = createSlice({
       .addCase(fetchRentals.fulfilled, (state, action) => {
         state.rentalArray = action.payload;
         state.loading = false;
+        state.length = state.rentalArray.length;
       })
       .addCase(createRental.fulfilled, (state, action) => {
         state.rentalArray.push(action.payload);
         state.loading = true;
-        state.length += 1;
       })
       .addCase(cancelRental.fulfilled, (state, action) => {
-        state.rentalArray.filter((rental) => rental.id !== action.payload);
+        state.rentalArray = state.rentalArray.filter((rental) => rental.id !== action.payload);
         state.length -= 1;
       });
   },

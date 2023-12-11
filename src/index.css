@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/arial-2');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,8 +10,15 @@
   --red: #e02c1f;
 }
 
-body {
-  overflow: hidden;
+.mHead {
+  font-family: 'Lilita One', sans-serif;
+}
+
+.newRental {
+  background-image: url('./assets/images/toyota-cars.png');
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: soft-light;
 }
 
 /* Buttons */
@@ -33,3 +41,30 @@ body {
 .active {
   @apply bg-[var(--green)] text-white;
 }
+
+.burger-menu.open span:nth-child(1) {
+  transform: translateY(0.75rem) rotate(45deg);
+}
+
+.burger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+  transform: translateY(-0.75rem) rotate(-45deg) !important;
+}
+
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l4 1s steps(4) infinite;
+}
+
+.loader::before {
+  content: "Loading...";
+}
+
+@keyframes l4 { to { clip-path: inset(0 -1ch 0 0); } }
