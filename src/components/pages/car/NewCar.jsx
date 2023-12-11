@@ -19,7 +19,7 @@ function NewCar() {
           </h2>
         </header>
         {/* eslint-disable */}
-        <form className="flex flex-col justify-center items-center w-full" onSubmit={handleSubmit(submitAddCar)}>
+        <form className="flex flex-col items-center justify-center w-full" onSubmit={handleSubmit(submitAddCar)}>
           <fieldset className="w-full">
             <label
               htmlFor="model"
