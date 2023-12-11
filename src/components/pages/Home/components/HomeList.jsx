@@ -31,7 +31,7 @@ function HomeList() {
         infinite
       >
         {carsArray.map((car) => (
-          <Link to={`/car/${car.id}`} key={car.id} className="block h-[30rem]">
+          <Link to={`/car/${car.id}`} key={car.id} className="block lg:h-[30rem]">
             <li key={car.id} className="grid h-full gap-10">
               <div className="flex flex-col justify-center w-full gap-2">
                 <picture className="relative grid sm:mb-10 place-items-center sm:px-5">
@@ -74,7 +74,7 @@ const CustomLeftArrow = ({ onClick }) => (
 const CustomRightArrow = ({ onClick }) => (
   <button
     type="button"
-    className="bg-[var(--green)] text-white p-5 rounded-l-full fixed right-0"
+    className="bg-[var(--green)] text-white p-5 rounded-l-full absolute right-0"
     aria-label="arrow right"
     onClick={() => onClick()}
   >

@@ -12,7 +12,7 @@ function NewCar() {
 
   return (
     <section className="bg-[var(--green)] text-white w-full md:px-24 md:w-4/5 md:absolute md:right-0">
-      <article className="p-10">
+      <article className="px-10 pb-10 md:p-10">
         <header className="mt-2 text-center">
           <h2 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">
             New Car

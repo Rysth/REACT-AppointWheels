@@ -22,33 +22,32 @@ function CarDetail() {
   if (loading) { return (<div>loading</div>); }
 
   return (
-    <section className="h-screen md:w-4/5 md:absolute md:right-0">
+    <section className="h-screen flex flex-col pb-8 md:pt-8 md:flex-row md:w-4/5 md:absolute md:right-0">
       <article className="flex flex-row items-center justify-center h-full gap-10 mx-auto sm:gap-16">
-        <div className="flex flex-col gap-10">
-          <picture className="relative grid overflow-visible sm:mb-10 place-items-center sm:px-5">
-            <span className="absolute z-20 w-32 h-32 rounded-full bg-slate-200 md:w-36 md:h-36 xl:w-60 xl:h-60" />
+        <div className="flex flex-col">
+          <picture className="relative grid sm:mb-10 place-items-center sm:px-5">
             <img
               src={car.image_url}
               alt=""
-              className="z-50 object-contain w-full h-full rounded-full "
+              className="object-contain w-full h-full rounded-full "
             />
           </picture>
           <div className="px-10 text-center">
-            <h3 className="font-bold uppercase sm:text-md ">
+            <h3 className="font-bold uppercase sm:text-3xl ">
               {car.model}
             </h3>
             <p className="mb-3 text-xl tracking-wider text-gray-200 sm:text-2xl ">
               .........................
             </p>
-            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-sm max-h-14">
+            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-xl max-h-14">
               Vehicle Type: &nbsp;
               {car.vehicle_type}
             </p>
-            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-sm max-h-14">
+            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-xl max-h-14">
               Seats: &nbsp;
               {car.seats}
             </p>
-            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-sm max-h-14">
+            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-xl max-h-14">
               Price Per Day: &nbsp;
               {car.price_per_day}
             </p>
@@ -63,8 +62,8 @@ function CarDetail() {
             </button>
           </Link>
         </div>
-        <CarDetailForm el={id} car={car} />
       </article>
+      <CarDetailForm el={id} car={car} />
     </section>
   );
 }

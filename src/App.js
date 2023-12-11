@@ -22,7 +22,7 @@ const App = () => {
       <header>
         <NotificationContainer />
       </header>
-      <main className="flex">
+      <main className="flex flex-col md:flex-row">
         {active && <Navigation />}
         <Routes>
           <Route

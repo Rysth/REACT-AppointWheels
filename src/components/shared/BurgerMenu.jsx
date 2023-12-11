@@ -13,7 +13,7 @@ function BurgerMenu({ isOpen, toggle }) {
       role="button"
       tabIndex={0}
       aria-label="Toggle menu"
-      className={`burger-menu h-6 w-6 absolute cursor-pointer z-50 m-1.5 right-3 ${isOpen ? 'open' : ''}`}
+      className={`burger-menu h-6 w-6 absolute cursor-pointer z-50 m-1.5 top-2 right-5 ${isOpen ? 'open' : ''}`}
       onClick={toggle}
       onKeyDown={handleKeyDown}
     >

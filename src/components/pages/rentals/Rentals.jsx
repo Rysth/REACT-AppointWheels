@@ -25,6 +25,10 @@ function Rentals() {
           <div className="flex flex-row items-center justify-center">
             <div className="pl-10 font-bold whitespace-nowrap">
               <p>
+                Model Name: &nbsp;
+                {rent.car.model}
+              </p>
+              <p>
                 Start Date: &nbsp;
                 {rent.start_date}
               </p>

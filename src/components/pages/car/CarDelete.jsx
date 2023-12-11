@@ -19,7 +19,7 @@ function CarDelete() {
   }
 
   return (
-    <section className="p-8 md:w-4/5 md:absolute md:right-0">
+    <section className="px-8 pb-8 md:p-8 md:w-4/5 md:absolute md:right-0">
       <h1 className="text-center text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">{`Total Cars: ${length}`}</h1>
       <div className="py-6">
         {carsArray.map((car) => (

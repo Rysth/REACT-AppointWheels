@@ -28,10 +28,19 @@ function Navigation() {
 
   return (
     <>
-      <nav className="w-0 h-0 sm:hidden">
-        <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
+      <nav className="md:hidden">
+        <div className="flex justify-center items-center">
+          <picture>
+            <img
+              src={AppointWheelsLogo}
+              alt="AppointWheels Logo"
+              className="mt-3 h-12"
+            />
+          </picture>
+          <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
+        </div>
         {isOpenMenu && (
-        <div className="fixed z-10 w-full py-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
+        <div className="fixed z-10 w-full pb-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
           <ul>
             <li>
               <NavLink
