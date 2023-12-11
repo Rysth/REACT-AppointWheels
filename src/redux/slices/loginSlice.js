@@ -32,14 +32,14 @@ export const createSession = createAsyncThunk(
 
       if (!response.status === 200) {
         NotificationManager.error('Email/Password Incorrect', 'Fail', 1250);
-        throw new Error('Error creating customer');
+        throw new Error('Error logging in');
       }
 
       NotificationManager.success('Login Successfully!', 'Success', 1250);
       return { ...response.data, ...response.headers };
     } catch (error) {
       NotificationManager.error('Email/Password Incorrect', 'Fail', 1250);
-      throw new Error('Error creating session');
+      throw new Error('Error logging in');
     }
   },
 );
@@ -64,6 +64,36 @@ export const destroySession = createAsyncThunk(
     } catch (error) {
       NotificationManager.error('Incorrect Logout', 'Fail', 1250);
       throw new Error('Error logging out');
+    }
+  },
+);
+
+// POST users#register
+export const registerUser = createAsyncThunk(
+  'credentials/registerUser',
+  async (userData) => {
+    try {
+      const response = await axios.post(
+        'http://localhost:3001/signup',
+        userData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
+        },
+      );
+
+      if (!response.status === 200) {
+        NotificationManager.error('Something went wrong', 'Fail', 1250);
+        throw new Error('Error registering user');
+      }
+
+      NotificationManager.success('Login Successfully!', 'Success', 1250);
+      return { ...response.data, ...response.headers };
+    } catch (error) {
+      NotificationManager.error('Something went wrong', 'Fail', 1250);
+      throw new Error('Error registering user');
     }
   },
 );
@@ -94,6 +124,9 @@ export const loginSlice = createSlice({
       state.active = false;
       sessionStorage.removeItem('userCredentials');
       sessionStorage.removeItem('authToken');
+    });
+    builder.addCase(registerUser.fulfilled, (state) => {
+      state.loading = false;
     });
   },
 });
