@@ -61,14 +61,15 @@ const rentalsSlice = createSlice({
       .addCase(fetchRentals.fulfilled, (state, action) => {
         state.rentalArray = action.payload;
         state.loading = false;
+        state.length = state.rentalArray.length;
+        console.log(action.payload);
       })
       .addCase(createRental.fulfilled, (state, action) => {
         state.rentalArray.push(action.payload);
         state.loading = true;
-        state.length += 1;
       })
       .addCase(cancelRental.fulfilled, (state, action) => {
-        state.rentalArray.filter((rental) => rental.id !== action.payload);
+        state.rentalArray = state.rentalArray.filter((rental) => rental.id !== action.payload);
         state.length -= 1;
       });
   },
