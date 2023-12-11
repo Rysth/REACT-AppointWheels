@@ -12,7 +12,7 @@ function Rentals() {
   }, [dispatch, loading]);
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p className="loader">loading...</p>;
   }
 
   return (
@@ -41,7 +41,7 @@ function Rentals() {
                 {rent.total_price}
               </p>
             </div>
-            <picture className="relative grid overflow-visible sm:mb-2 place-items-center sm:px-5 hidden md:block">
+            <picture className="relative grid hidden overflow-visible sm:mb-2 place-items-center sm:px-5 md:block">
               <img
                 src={rent.car.image_url}
                 alt=""
