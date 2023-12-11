@@ -22,7 +22,7 @@ function Navigation() {
       <nav className="w-0 h-0 sm:hidden">
         <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
         {isOpenMenu && (
-        <div className="fixed top-0 right-0 z-10 w-full py-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
+        <div className="fixed z-10 w-full py-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
           <ul>
             <li>
               <NavLink
