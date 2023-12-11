@@ -78,6 +78,11 @@ function Navigation() {
                 New Rental
               </NavLink>
             </li>
+            <li>
+              <button type="button" className="block w-full text-left p-2 pl-4 hover:bg-[var(--red)] hover:text-white text-xl font-bold md:hover:transition" onClick={logoutSubmit}>
+                Logout
+              </button>
+            </li>
           </ul>
         </div>
         )}
