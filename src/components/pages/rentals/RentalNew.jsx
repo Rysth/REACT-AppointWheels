@@ -51,7 +51,7 @@ function RentalNew() {
                 value={selectedCar}
                 onChange={(e) => setSelectedCar(e.target.value)}
                 required
-                className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+                className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
               >
                 <option value="">Select a Car</option>
                 {carsArray.map((car) => (
@@ -67,7 +67,7 @@ function RentalNew() {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
-              className="w-40 px-4 py-2 mt-2 border text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             >
               <option value="">Select a City</option>
               {cities.map((city) => (
