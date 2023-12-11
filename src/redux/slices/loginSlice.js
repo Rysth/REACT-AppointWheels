@@ -60,7 +60,7 @@ export const destroySession = createAsyncThunk(
         throw new Error('Error logging out');
       }
 
-      NotificationManager.success('Thank you!', 'Success', 1250);
+      NotificationManager.success('Logged Out Successfully\n Thank you!', 'Success', 1250);
     } catch (error) {
       NotificationManager.error('Incorrect Logout', 'Fail', 1250);
       throw new Error('Error logging out');
@@ -90,7 +90,7 @@ export const registerUser = createAsyncThunk(
       }
 
       NotificationManager.success('Registered Successfully!', 'Success', 1250);
-      return { ...response.data, ...response.headers };
+      return response.data;
     } catch (error) {
       NotificationManager.error('Something went wrong', 'Fail', 1250);
       throw new Error('Error registering user');
