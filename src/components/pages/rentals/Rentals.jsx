@@ -17,7 +17,7 @@ function Rentals() {
 
   return (
     <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
-      <div className="items-center ">
+      <div className="items-center mb-4">
         <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
       </div>
       {rentalArray.map((rent) => (
@@ -41,8 +41,7 @@ function Rentals() {
                 {rent.total_price}
               </p>
             </div>
-            <picture className="relative grid overflow-visible sm:mb-2 place-items-center sm:px-5">
-              <span className="absolute z-20 w-32 h-32 rounded-full bg-slate-200 md:w-36 md:h-36 xl:w-60 xl:h-60" />
+            <picture className="relative grid overflow-visible sm:mb-2 place-items-center sm:px-5 hidden md:block">
               <img
                 src={rent.car.image_url}
                 alt=""
