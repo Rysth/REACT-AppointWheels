@@ -28,3 +28,15 @@ body {
 .active {
   @apply bg-[var(--green)] text-white;
 }
+
+.burger-menu.open span:nth-child(1) {
+  transform: translateY(0.75rem) rotate(45deg);
+}
+
+.burger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+  transform: translateY(-0.75rem) rotate(-45deg)!important;
+}
