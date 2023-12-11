@@ -11,19 +11,19 @@ function CarDelete() {
   }, [dispatch, length]);
 
   if (loading) {
-    return (<div className="w-full mt-10 text-center text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl md:w-4/5 md:absolute md:right-0">Loading...</div>);
+    return (<div className="w-full mt-10 text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl md:w-4/5 md:absolute md:right-0">Loading...</div>);
   }
 
   if (length === 0) {
-    return (<div className="w-full mt-10 text-center text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl md:absolute md:right-0">No Car Available</div>);
+    return (<div className="w-full mt-10 tracking-wider text-center uppercase nt-black sm:text-3xl md:text-4xl md:absolute md:right-0">No Car Available</div>);
   }
 
   return (
     <section className="px-8 pb-8 md:p-8 md:w-4/5 md:absolute md:right-0">
-      <h1 className="text-center text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">{`Total Cars: ${length}`}</h1>
+      <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">{`Total Cars: ${length}`}</h1>
       <div className="py-6">
         {carsArray.map((car) => (
-          <div className="my-4 text-center flex flex-col justify-center items-center md:flex-row" key={car.id}>
+          <div className="flex flex-col items-center justify-center my-4 text-center md:flex-row" key={car.id}>
             <img src={car.image_url} alt={car.model} className="md:w-1/4" />
             <div className="px-4">
               <h3 className="mb-2 font-bold uppercase sm:text-md">{car.model}</h3>
