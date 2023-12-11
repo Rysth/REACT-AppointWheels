@@ -41,7 +41,7 @@ function Rentals() {
                 {rent.total_price}
               </p>
             </div>
-            <picture className="relative grid hidden overflow-visible sm:mb-2 place-items-center sm:px-5 md:block">
+            <picture className="relative hidden overflow-visible sm:mb-2 place-items-center sm:px-5 md:block">
               <img
                 src={rent.car.image_url}
                 alt=""
