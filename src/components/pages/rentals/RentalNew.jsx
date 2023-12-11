@@ -39,13 +39,13 @@ function RentalNew() {
   };
 
   return (
-    <section className="flex flex-col overlay items-center justify-center h-screen w-screen bg-[var(--green)] md:w-4/5 md:absolute md:right-0">
-      <h2 className="mb-20 text-3xl font-bold tracking-widest text-white">
+    <section className="newRental flex flex-col overlay items-center justify-center h-screen w-screen bg-[var(--green)] md:w-4/5 md:absolute md:right-0">
+      <h2 className="mb-20 text-3xl font-bold tracking-widest text-white md:text-5xl">
         RENT A TOYOTA
         <hr className="border-1 border-x-gray-700" />
       </h2>
       <form onSubmit={handleSubmit} className="">
-        <div className="flex flex-col justify-center mb-4 md:space-x-4">
+        <div className="flex flex-col md:flex-row justify-center items-center mb-4 md:space-x-4">
           <label htmlFor="car" className="flex">
             {loading ? (
               <p className="loader">Loading...</p>
@@ -82,9 +82,10 @@ function RentalNew() {
             </select>
           </label>
         </div>
-        <div className="flex flex-col md:block">
-          <label htmlFor="startDate" className="text-white md:flex-row md:flex">
+        <div className="flex flex-col md:flex-row md:gap-6">
+          <label htmlFor="startDate" className="text-white text-center">
             Start Date &nbsp;
+            <br className="hidden md:block" />
             <input
               id="startDate"
               name="startDate"
@@ -96,8 +97,9 @@ function RentalNew() {
               className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
-          <label htmlFor="endDate" className="flex flex-row mr-2 text-white">
+          <label htmlFor="endDate" className="text-white text-center">
             End Date &nbsp;
+            <br className="hidden md:block" />
             <input
               type="date"
               value={endDate}
@@ -106,8 +108,9 @@ function RentalNew() {
               className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
-          <label htmlFor="totalPrice" className="text-white">
+          <label htmlFor="totalPrice" className="text-white text-center">
             Total Price: $ &nbsp;
+            <br className="hidden md:block" />
             <input
               type="text"
               value={totalPriceCalc}
