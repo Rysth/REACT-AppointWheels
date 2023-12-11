@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 /* prettier-ignore */
-import { FiMenu } from 'react-icons/fi';
 import {
   FaGithub,
   FaLinkedin,
@@ -9,6 +8,7 @@ import {
   FaAngellist,
 } from 'react-icons/fa';
 import AppointWheelsLogo from '../../assets/icons/AppointWheels.png';
+import BurgerMenu from './BurgerMenu';
 
 function Navigation() {
   const [isOpenHome, setIsOpenHome] = useState(false);
@@ -18,14 +18,11 @@ function Navigation() {
   const toggleOpenMenu = () => setIsOpenMenu(!isOpenMenu);
 
   return (
-    <div>
-      <nav className="sm:hidden">
-        <FiMenu
-          onClick={toggleOpenMenu}
-          className="absolute top-0 right-0 z-20 m-4 text-4xl text-black cursor-pointer"
-        />
+    <>
+      <nav className="w-0 h-0 sm:hidden">
+        <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
         {isOpenMenu && (
-        <div className="fixed right-0 z-10 w-full py-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
+        <div className="fixed top-0 right-0 z-10 w-full py-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
           <ul>
             <li>
               <NavLink
@@ -177,12 +174,14 @@ function Navigation() {
               </a>
             </div>
             <div className="mt-4 text-sm text-center text-gray-500">
-              &copy; 2023 AppointWheels
+              &copy;&nbsp;
+              {new Date().getFullYear()}
+              &nbsp;AppointWheels
             </div>
           </footer>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 
