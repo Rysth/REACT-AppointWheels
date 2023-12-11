@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { IoReaderOutline } from 'react-icons/io5';
-import LoginBackground from '../../../assets/images/login_background.jpg';
+import SignUpBackground from '../../../assets/images/signup_background.jpg';
 import { registerUser } from '../../../redux/slices/loginSlice';
 
 function SignUp() {
@@ -25,7 +25,7 @@ function SignUp() {
       <div className="relative grid items-center justify-center h-full sm:grid-cols-2">
         <picture className="absolute top-0 bottom-0 left-0 right-0 h-full sm:relative">
           <img
-            src={LoginBackground}
+            src={SignUpBackground}
             alt="Portrait vehicle"
             className="object-cover w-full h-full max-h-screen brightness-50 sm:brightness-100"
           />
