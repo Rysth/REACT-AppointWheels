@@ -11,16 +11,16 @@ function NewCar() {
   };
 
   return (
-    <section className="bg-white">
-      <article className="max-w-screen-xl mx-auto">
+    <section className="bg-[var(--green)] text-white w-full md:px-24">
+      <article className="p-10">
         <header className="mt-2 text-center">
           <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
             New Car
           </h2>
         </header>
         {/* eslint-disable */}
-        <form onSubmit={handleSubmit(submitAddCar)}>
-          <fieldset>
+        <form className="flex flex-col justify-center items-center w-full" onSubmit={handleSubmit(submitAddCar)}>
+          <fieldset className="w-full">
             <label
               htmlFor="model"
               className="relative grid gap-2 font-semibold"
@@ -29,12 +29,12 @@ function NewCar() {
               <input
                 type="text"
                 {...register('model')}
-                className="flex-1 p-2 font-normal border rounded-lg shadow-lg focus:outline-none focus:border-gray-500"
+                className="flex-1 p-2 font-semibold border rounded-lg shadow-lg focus:outline-none focus:border-gray-500 text-[var(--green)]"
                 required
               />
             </label>
           </fieldset>
-          <fieldset>
+          <fieldset className="w-full">
             <label
               htmlFor="seats"
               className="relative grid gap-2 font-semibold"
@@ -43,12 +43,12 @@ function NewCar() {
               <input
                 type="number"
                 {...register('seats')}
-                className="flex-1 p-2 font-normal border rounded-lg shadow-lg focus:outline-none focus:border-gray-500"
+                className="flex-1 p-2 font-semibold border rounded-lg shadow-lg focus:outline-none focus:border-gray-500 text-[var(--green)]"
                 required
               />
             </label>
           </fieldset>
-          <fieldset>
+          <fieldset className="w-full">
             <label
               htmlFor="description"
               className="relative grid gap-2 font-semibold"
@@ -57,12 +57,12 @@ function NewCar() {
               <input
                 type="text"
                 {...register('description')}
-                className="flex-1 p-2 font-normal border rounded-lg shadow-lg focus:outline-none focus:border-gray-500"
+                className="flex-1 p-2 font-semibold border rounded-lg shadow-lg focus:outline-none focus:border-gray-500 text-[var(--green)]"
                 required
               />
             </label>
           </fieldset>
-          <fieldset>
+          <fieldset className="w-full">
             <label
               htmlFor="price_per_day"
               className="relative grid gap-2 font-semibold"
@@ -71,12 +71,12 @@ function NewCar() {
               <input
                 type="number"
                 {...register('price_per_day')}
-                className="flex-1 p-2 font-normal border rounded-lg shadow-lg focus:outline-none focus:border-gray-500"
+                className="flex-1 p-2 font-semibold border rounded-lg shadow-lg focus:outline-none focus:border-gray-500 text-[var(--green)]"
                 required
               />
             </label>
           </fieldset>
-          <fieldset>
+          <fieldset className="w-full">
             <label
               htmlFor="vehicle_type"
               className="relative grid gap-2 font-semibold"
@@ -85,23 +85,23 @@ function NewCar() {
               <input
                 type="text"
                 {...register('vehicle_type')}
-                className="flex-1 p-2 font-normal border rounded-lg shadow-lg focus:outline-none focus:border-gray-500"
+                className="flex-1 p-2 font-semibold border rounded-lg shadow-lg focus:outline-none focus:border-gray-500 text-[var(--green)]"
                 required
               />
             </label>
           </fieldset>
-          <fieldset>
+          <fieldset className="w-full">
             <label htmlFor="text" className="relative grid gap-2 font-semibold">
               Vehicle Image:
               <input
                 type="text"
                 {...register('image_url')}
-                className="flex-1 p-2 font-normal border rounded-lg shadow-lg focus:outline-none focus:border-gray-500"
+                className="flex-1 p-2 font-semibold border rounded-lg shadow-lg focus:outline-none focus:border-gray-500 text-[var(--green)]"
                 required
               />
             </label>
           </fieldset>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-secondary justify-self-center">
             Add New Car
           </button>
         </form>
