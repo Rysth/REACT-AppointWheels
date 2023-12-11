@@ -19,10 +19,10 @@ function CarDetail() {
     }
   }, [dispatch, loading]);
 
-  if (loading) { return (<div>loading</div>); }
+  if (loading) { return (<div className="loader">loading</div>); }
 
   return (
-    <section className="h-screen flex flex-col pb-8 md:pt-8 md:flex-row md:w-4/5 md:absolute md:right-0">
+    <section className="flex flex-col h-screen pb-8 md:pt-8 md:flex-row md:w-4/5 md:absolute md:right-0">
       <article className="flex flex-row items-center justify-center h-full gap-10 mx-auto sm:gap-16">
         <div className="flex flex-col">
           <picture className="relative grid sm:mb-10 place-items-center sm:px-5">
