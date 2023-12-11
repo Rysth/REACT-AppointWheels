@@ -39,7 +39,7 @@ function RentalNew() {
   };
 
   return (
-    <section className="flex flex-col overlay items-center justify-center h-screen w-screen bg-[url('https://jzheng100823.github.io/hicproj/images/ToyotaCamry.png')] bg-[var(--green)] bg-contain bg-no-repeat bg-center">
+    <section className="flex flex-col overlay items-center justify-center h-screen w-screen bg-[var(--green)] md:w-4/5 md:absolute md:right-0">
       <h2 className="mb-20 text-3xl font-bold tracking-widest text-white">
         RENT A TOYOTA
         <hr className="border-1 border-x-gray-700" />
