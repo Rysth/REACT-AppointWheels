@@ -6,7 +6,7 @@
   <a href="/src/assets/icons/AppointWheels.png">
     <img src="/src/assets/icons/AppointWheels.png" alt="Logo" width="350" height="200">
   </a>
-  <h3 align="center">AppointWheels</h3>
+  <h1 align="center">AppointWheels</h1>
 </div>
 
 
