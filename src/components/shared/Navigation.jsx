@@ -115,7 +115,7 @@ function Navigation() {
             <li>
               <NavLink
                 to="/"
-                activeClassName="bg-[var(--green)]"
+                activeclassname="bg-[var(--green)]"
                 className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition "
                 onClick={toggleOpenHome}
               >
@@ -126,7 +126,7 @@ function Navigation() {
                   <li className="mb-1">
                     <NavLink
                       to="/newcar"
-                      activeClassName="bg-[var(--green)]"
+                      activeclassname="bg-[var(--green)]"
                       className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
                     >
                       Create Car
@@ -135,7 +135,7 @@ function Navigation() {
                   <li className="mb-1">
                     <NavLink
                       to="/deletecar"
-                      activeClassName="bg-[var(--green)]"
+                      activeclassname="bg-[var(--green)]"
                       className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
                     >
                       Delete Car
@@ -147,7 +147,7 @@ function Navigation() {
             <li>
               <NavLink
                 to="/rentals"
-                activeClassName="bg-[var(--green)]"
+                activeclassname="bg-[var(--green)]"
                 className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
               >
                 My Rentals
@@ -156,7 +156,7 @@ function Navigation() {
             <li>
               <NavLink
                 to="/rental/new"
-                activeClassName="bg-[var(--green)]"
+                activeclassname="bg-[var(--green)]"
                 className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
               >
                 New Rental
