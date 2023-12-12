@@ -32,7 +32,7 @@ function HomeList() {
       >
         {carsArray.map((car) => (
           <Link to={`/car/${car.id}`} key={car.id} className="block lg:h-[30rem]">
-            <li key={car.id} className="grid h-full gap-10">
+            <div key={car.id} className="grid h-full gap-10">
               <div className="flex flex-col justify-center w-full gap-2">
                 <picture className="relative grid sm:mb-10 place-items-center sm:px-5">
                   <span className="absolute z-20 w-48 h-48 rounded-full bg-slate-200 sm:w-52 sm:h-52 lg:w-60 lg:h-60" />
@@ -52,7 +52,7 @@ function HomeList() {
                   </p>
                 </div>
               </div>
-            </li>
+            </div>
           </Link>
         ))}
       </Carousel>
