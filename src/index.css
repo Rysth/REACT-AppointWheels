@@ -27,7 +27,7 @@
 }
 
 .btn-primary {
-  @apply bg-[var(--green)];
+  @apply bg-[var(--green)] shadow-md;
 }
 
 .btn-secondary {
@@ -64,7 +64,11 @@
 }
 
 .loader::before {
-  content: "Loading...";
+  content: 'Loading...';
 }
 
-@keyframes l4 { to { clip-path: inset(0 -1ch 0 0); } }
+@keyframes l4 {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
+}
