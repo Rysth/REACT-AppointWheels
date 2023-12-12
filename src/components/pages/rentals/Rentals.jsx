@@ -44,6 +44,10 @@ function Rentals() {
                 {rent.car.model}
               </p>
               <p>
+                Subsidiary Location: &nbsp;
+                {rent.city}
+              </p>
+              <p>
                 Start Date: &nbsp;
                 {rent.start_date}
               </p>
