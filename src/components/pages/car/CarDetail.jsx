@@ -17,9 +17,7 @@ function CarDetail() {
     }
   }, [dispatch, loading]);
 
-  if (loading) {
-    return <div>loading</div>;
-  }
+if (loading) { return (<div className="loader">loading</div>); }
 
   return (
     <section className="flex flex-col w-full h-screen pb-8 mt-10  sm:mt-0 md:pt-8 md:flex-row md:pl-[20%]">
