@@ -10,10 +10,17 @@ function CarDelete() {
     dispatch(fetchCars());
   }, [dispatch, length]);
 
-  if (loading || length === 0) {
+  if (loading) {
     return (
       <div className="w-full mt-10 text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl md:w-4/5 md:absolute md:right-0">
         Loading...
+      </div>
+    );
+  }
+  if (length === 0) {
+    return (
+      <div className="w-full mt-10 text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl md:w-4/5 md:absolute md:right-0">
+        No Cars Available.
       </div>
     );
   }
