@@ -69,8 +69,10 @@ function CarDetailForm({ car }) {
     }
   };
   return (
-    <div className="flex flex-col items-end justify-center w-full h-full mt-10 mr-10 md:max-w-sm sm:mt-0">
-      <h2 className="text-xl font-bold uppercase sm:text-2xl md:text-4xl">{car.model}</h2>
+    <div className="flex flex-col items-end justify-center w-full h-full px-4 mt-10 mr-10 md:max-w-sm sm:mt-0">
+      <h2 className="text-xl font-bold text-center uppercase sm:text-2xl md:text-4xl ">
+        {car.model}
+      </h2>
       <div className="w-full mt-10 mb-5">
         <div className="flex justify-between w-full p-2 bg-slate-300">
           <p className="text-xs font-bold text-center sm:text-sm max-h-14 whitespace-nowrap">
