@@ -12,11 +12,26 @@ function Rentals() {
   }, [dispatch, loading]);
 
   if (loading) {
-    return <p className="loader">loading...</p>;
+    return (
+      <section className="w-full h-screen mt-10 md:w-4/5 md:absolute md:right-0">
+        <div className="items-center mb-4">
+          <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">Loading... </h1>
+        </div>
+      </section>
+    );
+  }
+  if (!loading && rentalArray.length === 0) {
+    return (
+      <section className="w-full h-screen mt-10 md:w-4/5 md:absolute md:right-0">
+        <div className="items-center mb-4">
+          <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">No Rentals Yet. </h1>
+        </div>
+      </section>
+    );
   }
 
   return (
-    <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
+    <section className="w-full h-screen mt-10 md:w-4/5 md:absolute md:right-0">
       <div className="items-center mb-4">
         <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
       </div>
@@ -27,6 +42,10 @@ function Rentals() {
               <p>
                 Model Name: &nbsp;
                 {rent.car.model}
+              </p>
+              <p>
+                Subsidiary Location: &nbsp;
+                {rent.city}
               </p>
               <p>
                 Start Date: &nbsp;
@@ -41,7 +60,7 @@ function Rentals() {
                 {rent.total_price}
               </p>
             </div>
-            <picture className="relative hidden overflow-visible sm:mb-2 place-items-center sm:px-5 md:block">
+            <picture className="relative grid hidden overflow-visible sm:mb-2 place-items-center sm:px-5 md:block">
               <img
                 src={rent.car.image_url}
                 alt=""

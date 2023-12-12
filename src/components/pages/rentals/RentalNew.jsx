@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createRental } from '../../../redux/slices/rentalsSlice';
 import { fetchCars } from '../../../redux/slices/carsSlice';
+import cities from '../../cities/city';
 
 function RentalNew() {
   const dispatch = useDispatch();
@@ -16,8 +17,6 @@ function RentalNew() {
   const pricePerDay = selectedCarObj ? selectedCarObj.price_per_day : 0;
   const days = (new Date(endDate) - new Date(startDate)) / 86400000;
   const totalPriceCalc = selectedCar && startDate && endDate ? (pricePerDay * days).toFixed(2) : 0;
-
-  const cities = ['Barcelona', 'Madrid', 'Sevilla', 'Valencia', 'Bilbao'];
 
   useEffect(() => {
     if (loading) {
@@ -45,7 +44,7 @@ function RentalNew() {
         <hr className="border-1 border-x-gray-700" />
       </h2>
       <form onSubmit={handleSubmit} className="">
-        <div className="flex flex-col md:flex-row justify-center items-center mb-4 md:space-x-4">
+        <div className="flex flex-col items-center justify-center mb-4 md:flex-row md:space-x-4">
           <label htmlFor="car" className="flex">
             {loading ? (
               <p className="loader">Loading...</p>
@@ -83,9 +82,9 @@ function RentalNew() {
           </label>
         </div>
         <div className="flex flex-col md:flex-row md:gap-6">
-          <label htmlFor="startDate" className="text-white text-center">
+          <label htmlFor="startDate" className="font-bold text-center text-white">
             Start Date &nbsp;
-            <br className="hidden md:block" />
+            <br />
             <input
               id="startDate"
               name="startDate"
@@ -97,9 +96,9 @@ function RentalNew() {
               className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
-          <label htmlFor="endDate" className="text-white text-center">
+          <label htmlFor="endDate" className="font-bold text-center text-white">
             End Date &nbsp;
-            <br className="hidden md:block" />
+            <br />
             <input
               type="date"
               value={endDate}
@@ -108,9 +107,9 @@ function RentalNew() {
               className="w-40 px-4 py-2 mt-2 border-2 text-white border-white rounded-3xl appearance-none bg-[var(--green)] focus:outline-none focus:ring-2 focus:ring-white"
             />
           </label>
-          <label htmlFor="totalPrice" className="text-white text-center">
+          <label htmlFor="totalPrice" className="font-bold text-center text-white">
             Total Price: $ &nbsp;
-            <br className="hidden md:block" />
+            <br />
             <input
               type="text"
               value={totalPriceCalc}

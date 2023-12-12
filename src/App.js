@@ -16,7 +16,6 @@ import Navigation from './components/shared/Navigation';
 const App = () => {
   const active = useSelector((state) => state.credentials.active);
 
-  /* eslint-disable */
   return (
     <BrowserRouter>
       <header>
@@ -27,67 +26,67 @@ const App = () => {
         <Routes>
           <Route
             path="/login"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={!active} redirectTo="/">
                 <Login />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/signup"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={!active} redirectTo="/">
                 <SignUp />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <HomePage />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/newcar"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <NewCar />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/deletecar"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <CarDelete />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/car/:id"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <CarDetail />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/rentals"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <Rentals />
               </ProtectedRoute>
-            }
+            )}
           />
           <Route
             path="/rental/new"
-            element={
+            element={(
               <ProtectedRoute isAuthenticated={active} redirectTo="/login">
                 <RentalNew />
               </ProtectedRoute>
-            }
+            )}
           />
         </Routes>
       </main>
