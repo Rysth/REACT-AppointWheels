@@ -34,82 +34,78 @@ function Navigation() {
 
   return (
     <>
-      <nav className="md:hidden">
+      <nav className="shadow-md md:hidden z-[1000]">
         <div className="flex items-center justify-center">
           <picture>
-            <img
-              src={AppointWheelsLogo}
-              alt="AppointWheels Logo"
-              className="h-12 mt-3"
-            />
+            <img src={AppointWheelsLogo} alt="AppointWheels Logo" className="h-16 sm:mt-3" />
           </picture>
           <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
         </div>
         {isOpenMenu && (
-        <div className="fixed z-10 w-full pb-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
-          <ul>
-            <li>
-              <NavLink
-                to="/"
-                className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition "
-                onClick={toggleOpenHome}
-              >
-                Home
-              </NavLink>
-              {isOpenHome && user && user.role === 'admin' && (
-                <ul className="bg-slate-100">
-                  <li className="mb-1">
-                    <NavLink
-                      to="/newcar"
-                      className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
-                    >
-                      Create Car
-                    </NavLink>
-                  </li>
-                  <li className="mb-1">
-                    <NavLink
-                      to="/deletecar"
-                      className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
-                    >
-                      Delete Car
-                    </NavLink>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <NavLink
-                to="/rentals"
-                className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
-              >
-                My Rentals
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/rental/new"
-                className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
-              >
-                New Rental
-              </NavLink>
-            </li>
-            <li>
-              <button type="button" className="block w-full text-left p-2 pl-4 hover:bg-[var(--red)] hover:text-white text-xl font-bold md:hover:transition" onClick={logoutSubmit}>
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
+          <aside className="fixed z-10 w-full pb-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
+            <ul>
+              <li>
+                <NavLink
+                  to="/"
+                  className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition "
+                  onClick={toggleOpenHome}
+                >
+                  Home
+                </NavLink>
+                {isOpenHome && user && user.role === 'admin' && (
+                  <ul className="bg-slate-100">
+                    <li className="mb-1">
+                      <NavLink
+                        to="/newcar"
+                        className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
+                      >
+                        Create Car
+                      </NavLink>
+                    </li>
+                    <li className="mb-1">
+                      <NavLink
+                        to="/deletecar"
+                        className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
+                      >
+                        Delete Car
+                      </NavLink>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <NavLink
+                  to="/rentals"
+                  className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
+                >
+                  My Rentals
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/rental/new"
+                  className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
+                >
+                  New Rental
+                </NavLink>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="block w-full text-left p-2 pl-4 hover:bg-[var(--red)] hover:text-white text-xl font-bold md:hover:transition"
+                  onClick={logoutSubmit}
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </aside>
         )}
       </nav>
-      <nav className="hidden md:block md:fixed md:w-1/5">
-        <div className="flex flex-col h-screen py-8 bg-white shadow-xl text-back">
+      <nav className="hidden w-full md:block md:w-1/5 md:fixed">
+        <div className="flex flex-col h-screen py-8 bg-white shadow-lg text-back ">
           <picture>
-            <img
-              src={AppointWheelsLogo}
-              alt="AppointWheels Logo"
-              className="block bg-cyan-200"
-            />
+            <img src={AppointWheelsLogo} alt="AppointWheels Logo" className="block" />
           </picture>
           <ul className="flex flex-col flex-1 pl-4 font-semibold uppercase mt-14">
             <li>
@@ -163,7 +159,11 @@ function Navigation() {
               </NavLink>
             </li>
             <li>
-              <button type="button" className="block w-full text-left p-2 pl-4 hover:bg-[var(--red)] hover:text-white text-xl font-bold md:hover:transition" onClick={logoutSubmit}>
+              <button
+                type="button"
+                className="block w-full text-left p-2 pl-4 hover:bg-[var(--red)] hover:text-white text-xl font-bold md:hover:transition"
+                onClick={logoutSubmit}
+              >
                 Logout
               </button>
             </li>
