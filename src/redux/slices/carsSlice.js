@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { NotificationManager } from 'react-notifications';
 import axios from 'axios';
 
+// GET cars#index
 export const fetchCars = createAsyncThunk('cars/index',
   async () => {
     const authTokenData = sessionStorage.getItem('authToken');
@@ -23,6 +24,7 @@ export const fetchCars = createAsyncThunk('cars/index',
     }
   });
 
+// POST cars#create
 export const addCar = createAsyncThunk('cars/addCar', async (car) => {
   const authTokenData = sessionStorage.getItem('authToken');
   try {
@@ -50,7 +52,7 @@ export const addCar = createAsyncThunk('cars/addCar', async (car) => {
     throw new Error(error);
   }
 });
-
+// DELETE cars#destroy
 export const removeCar = createAsyncThunk('cars/removeCar', async (carId) => {
   const authTokenData = sessionStorage.getItem('authToken');
   try {
