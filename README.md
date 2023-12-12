@@ -1,9 +1,20 @@
 <a name="readme-top"></a>
 
+<!-- PROJECT LOGO -->
+
+<div align="center">
+  <a href="/src/assets/icons/AppointWheels.png">
+    <img src="/src/assets/icons/AppointWheels.png" alt="Logo" width="80" height="80">
+  </a>
+  <h3 align="center">AppointWheels</h3>
+</div>
+
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
+- [💻 Backend Link repository](#backend-link)
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
@@ -18,11 +29,17 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
+<!-- BACKEND LINK -->
+
+# 💻 Backend Link repository <a name="backend-link"></a>
+
+- [**Backend Link**](https://github.com/Rysth/RAILS-AppointWheels)
+
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 React/Rails AppointWheels <a name="about-project"></a>
+# 📖 React AppointWheels <a name="about-project"></a>
 
-**AppointWheels** description...
+**AppointWheels** is a car rental application built with React and Ruby on Rails. The application allows users to book a car for a specific date and time. Users can create an account and log in to the application. The application is responsive and works on all devices.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -54,9 +71,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Key Features 1
-- Key Features 2
-- Key Features 3
+- **Car Rental Booking:** Users can book a car for a specific date and time.
+- **User Authentication:** Users can create an account and log in to the application.
+- **Responsive Design:** The application is responsive and works on all devices.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,7 +96,6 @@ Clone the repository:
 ### Usage <a name="usage"></a>
 
 - **npm start:** Run the app in development mode.
-- **npm test:** Launch the test runner.
 - **npm run build:** Build the app for production.
 
 ### Linters <a name="linters"></a>
@@ -126,9 +142,9 @@ Clone the repository:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Future Feature 1
-- [ ] Future Feature 2
-- [ ] Future Feature 3
+- **Car Review:** Users can leave a review for a car.
+- **Car Rating:** Users can rate a car.
+- **Car Search:** Users can search for a car by name.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,8 +162,16 @@ Feel free to check the [issues page](../../issues/).
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Special thanks to [Murat Korkmaz](https://www.behance.net/muratk) from providing us with an excellent resource from their Behance account.
-Also, I would like to thanks to my family members for supporting me during Microverse, and their team.
+I would like to thank the following:
+
+- [Microverse](https://www.microverse.org/) for assigning us this project
+- Our Stand Up Teams for their feedback and suggestions
+- Team members for their collaboration to the project
+
+Attribution:
+
+- [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the design idea
+- [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/) for the license
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
