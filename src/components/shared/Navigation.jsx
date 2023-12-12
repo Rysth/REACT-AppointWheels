@@ -15,11 +15,17 @@ import { destroySession } from '../../redux/slices/loginSlice';
 function Navigation() {
   const dispatch = useDispatch();
   const userToken = sessionStorage.getItem('authToken');
+  const user = JSON.parse(sessionStorage.getItem('userCredentials'));
 
   const [isOpenHome, setIsOpenHome] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-  const toggleOpenHome = () => setIsOpenHome(!isOpenHome);
+  const toggleOpenHome = () => {
+    if (user.role === 'admin') {
+      setIsOpenHome(!isOpenHome);
+    }
+  };
+
   const toggleOpenMenu = () => setIsOpenMenu(!isOpenMenu);
 
   const logoutSubmit = () => {
@@ -29,12 +35,12 @@ function Navigation() {
   return (
     <>
       <nav className="md:hidden">
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           <picture>
             <img
               src={AppointWheelsLogo}
               alt="AppointWheels Logo"
-              className="mt-3 h-12"
+              className="h-12 mt-3"
             />
           </picture>
           <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
@@ -50,7 +56,7 @@ function Navigation() {
               >
                 Home
               </NavLink>
-              {isOpenHome && (
+              {isOpenHome && user && user.role === 'admin' && (
                 <ul className="bg-slate-100">
                   <li className="mb-1">
                     <NavLink
