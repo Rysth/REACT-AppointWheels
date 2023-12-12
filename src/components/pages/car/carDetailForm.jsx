@@ -1,13 +1,11 @@
-/* eslint-disable import/order */
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoKeyOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { createRental } from '../../../redux/slices/rentalsSlice';
 import ReactDatePicker from 'react-datepicker';
+import { createRental } from '../../../redux/slices/rentalsSlice';
 
 function CarDetailForm({ car }) {
   const dispatch = useDispatch();
@@ -75,7 +73,7 @@ function CarDetailForm({ car }) {
     }
   };
   return (
-    <div className="flex flex-col items-end justify-center w-full h-full md:max-w-sm mr-10">
+    <div className="flex flex-col items-end justify-center w-full h-full mr-10 md:max-w-sm">
       <h2 className="pb-8 pr-8 text-xl font-bold uppercase sm:text-md">{car.model}</h2>
       <div className="flex flex-row justify-between w-full p-2 bg-slate-300">
         <p className="text-xs text-center sm:text-sm max-h-14 whitespace-nowrap">Price Per Day</p>
@@ -133,9 +131,18 @@ function CarDetailForm({ car }) {
 }
 
 CarDetailForm.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   id: PropTypes.number.isRequired,
-  car: PropTypes.objectOf(PropTypes.any).isRequired,
+  car: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    model: PropTypes.string.isRequired,
+    seats: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    price_per_day: PropTypes.number.isRequired,
+    created_at: PropTypes.string.isRequired,
+    updated_at: PropTypes.string.isRequired,
+    vehicle_type: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default CarDetailForm;
