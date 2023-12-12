@@ -2,11 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { NotificationManager } from 'react-notifications';
 
-const authTokenData = sessionStorage.getItem('authToken');
-
 // Async thunk to fetch rentals
 export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () => {
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
+  const authTokenData = sessionStorage.getItem('authToken');
   try {
     const response = await axios.get(`http://localhost:3001/api/v1/users/${user.id}/rentals`, {
       headers: { Authorization: authTokenData },
@@ -21,6 +20,7 @@ export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () =>
 
 export const createRental = createAsyncThunk('rentals/createRental', async (rental) => {
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
+  const authTokenData = sessionStorage.getItem('authToken');
   try {
     const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
       headers: { Authorization: authTokenData },
@@ -36,6 +36,7 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
 // Async thunk to delete a rental
 export const cancelRental = createAsyncThunk('rentals/deleteRental', async (id) => {
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
+  const authTokenData = sessionStorage.getItem('authToken');
   try {
     await axios.delete(`http://localhost:3001/api/v1/users/${user.id}/rentals/${id}`, {
       headers: { Authorization: authTokenData },
