@@ -42,7 +42,7 @@ function Navigation() {
           <BurgerMenu isOpen={isOpenMenu} toggle={toggleOpenMenu} />
         </div>
         {isOpenMenu && (
-          <aside className="z-10 w-full pb-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
+          <aside className="absolute z-10 w-full pb-12 text-black transition-all duration-500 ease-in-out origin-top transform bg-white shadow-xl">
             <ul>
               <li>
                 <NavLink
