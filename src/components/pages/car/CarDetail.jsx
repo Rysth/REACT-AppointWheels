@@ -9,7 +9,7 @@ function CarDetail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const carId = parseInt(id, 10);
-  const { carsArray, loading } = useSelector((store) => (store.carsStore));
+  const { carsArray, loading } = useSelector((store) => store.carsStore);
   const car = carsArray.find((el) => el.id === carId);
   useEffect(() => {
     if (loading) {
@@ -17,43 +17,45 @@ function CarDetail() {
     }
   }, [dispatch, loading]);
 
-  if (loading) { return (<div>loading</div>); }
+  if (loading) {
+    return <div>loading</div>;
+  }
 
   return (
-    <section className="flex flex-col h-screen pb-8 md:pt-8 md:flex-row md:w-4/5 md:absolute md:right-0">
-      <article className="flex flex-row items-center justify-center h-full gap-10 mx-auto sm:gap-16">
-        <div className="flex flex-col">
-          <picture className="relative grid sm:mb-10 place-items-center sm:px-5">
+    <section className="flex flex-col w-full h-screen pb-8 mt-10  sm:mt-0 md:pt-8 md:flex-row md:pl-[20%]">
+      <article className="relative w-full h-full sm:gap-16">
+        <div className="flex flex-col w-full h-full">
+          <picture className="relative grid sm:mb-10 place-items-center sm:px-5 sm:h-3/5">
             <img
               src={car.image_url}
               alt=""
-              className="object-contain w-full h-full rounded-full "
+              className="object-contain w-full h-full max-w-[40rem]"
             />
           </picture>
           <div className="px-10 text-center">
-            <h3 className="font-bold uppercase sm:text-3xl ">
-              {car.model}
-            </h3>
-            <p className="mb-3 text-xl tracking-wider text-gray-200 sm:text-2xl ">
+            <h3 className="text-xl font-bold uppercase">{car.model}</h3>
+            <p className="mb-3 text-xl tracking-wider text-gray-200 sm:text-xl">
               .........................
             </p>
-            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-xl max-h-14">
-              Vehicle Type: &nbsp;
-              {car.vehicle_type}
-            </p>
-            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-xl max-h-14">
-              Seats: &nbsp;
-              {car.seats}
-            </p>
-            <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-xl max-h-14">
-              Price Per Day: &nbsp;
-              {car.price_per_day}
-            </p>
+            <div className="grid">
+              <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-lg max-h-14">
+                Vehicle Type: &nbsp;
+                {car.vehicle_type}
+              </p>
+              <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-lg max-h-14">
+                Seats: &nbsp;
+                {car.seats}
+              </p>
+              <p className="overflow-hidden text-xs text-center text-gray-400 sm:text-lg max-h-14">
+                Price Per Day: &nbsp;
+                {car.price_per_day}
+              </p>
+            </div>
           </div>
           <Link to="/" key={car.id}>
             <button
               type="button"
-              className="bg-[var(--green)] text-white p-5 rounded-r-full"
+              className="bg-[var(--green)] text-white p-5 rounded-r-full absolute bottom-0"
               aria-label="arrow left"
             >
               <LuArrowBigLeftDash className="text-xl sm:text-3xl" />
