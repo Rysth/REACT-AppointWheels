@@ -84,7 +84,7 @@ function RentalNew() {
         <div className="flex flex-col md:flex-row md:gap-6">
           <label htmlFor="startDate" className="font-bold text-center text-white">
             Start Date &nbsp;
-            <br className="" />
+            <br />
             <input
               id="startDate"
               name="startDate"
@@ -98,7 +98,7 @@ function RentalNew() {
           </label>
           <label htmlFor="endDate" className="font-bold text-center text-white">
             End Date &nbsp;
-            <br className="" />
+            <br />
             <input
               type="date"
               value={endDate}
@@ -109,7 +109,7 @@ function RentalNew() {
           </label>
           <label htmlFor="totalPrice" className="font-bold text-center text-white">
             Total Price: $ &nbsp;
-            <br className="" />
+            <br />
             <input
               type="text"
               value={totalPriceCalc}
