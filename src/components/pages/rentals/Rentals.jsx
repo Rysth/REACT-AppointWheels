@@ -13,7 +13,7 @@ function Rentals() {
 
   if (loading) {
     return (
-      <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
+      <section className="w-full h-screen mt-10 md:w-4/5 md:absolute md:right-0">
         <div className="items-center mb-4">
           <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">Loading... </h1>
         </div>
@@ -22,7 +22,7 @@ function Rentals() {
   }
   if (!loading && rentalArray.length === 0) {
     return (
-      <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
+      <section className="w-full h-screen mt-10 md:w-4/5 md:absolute md:right-0">
         <div className="items-center mb-4">
           <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">No Rentals Yet. </h1>
         </div>
@@ -31,7 +31,7 @@ function Rentals() {
   }
 
   return (
-    <section className="w-full h-screen md:w-4/5 md:absolute md:right-0">
+    <section className="w-full h-screen mt-10 md:w-4/5 md:absolute md:right-0">
       <div className="items-center mb-4">
         <h1 className="text-2xl font-black tracking-wider text-center uppercase sm:text-3xl md:text-4xl">All Your Rentals: </h1>
       </div>
