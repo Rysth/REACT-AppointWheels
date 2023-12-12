@@ -6,6 +6,7 @@ import { IoKeyOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import ReactDatePicker from 'react-datepicker';
 import { createRental } from '../../../redux/slices/rentalsSlice';
+import cities from '../../cities/city';
 
 function CarDetailForm({ car }) {
   const dispatch = useDispatch();
@@ -13,7 +14,6 @@ function CarDetailForm({ car }) {
   const [endDate, setEndDate] = useState(null);
   const [totalDays, setTotalDays] = useState();
   const [amount, setAmount] = useState();
-  const cities = [{ name: 'Salta' }, { name: 'Cordoba' }, { name: 'Buenos Aires' }];
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   const { register, handleSubmit } = useForm();
 
@@ -110,8 +110,8 @@ function CarDetailForm({ car }) {
                 Select a city
               </option>
               {cities.map((city) => (
-                <option key={city.id} value={city.name}>
-                  {city.name}
+                <option key={city} value={city}>
+                  {city}
                 </option>
               ))}
             </select>
