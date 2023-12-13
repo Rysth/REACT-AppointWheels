@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -18,14 +17,7 @@ const Navigation = () => {
   const userToken = sessionStorage.getItem('authToken');
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
 
-  const [isOpenHome, setIsOpenHome] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-
-  const toggleOpenHome = () => {
-    if (user.role === 'admin') {
-      setIsOpenHome(!isOpenHome);
-    }
-  };
 
   const toggleOpenMenu = () => setIsOpenMenu(!isOpenMenu);
 
