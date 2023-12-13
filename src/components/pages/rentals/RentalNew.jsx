@@ -30,8 +30,8 @@ const RentalNew = () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const selectedStartDate = new Date(startDate);
-    if (selectedStartDate < today && totalPriceCalc < 0) {
-      NotificationManager.error('Start date must be today or later', 'Fail', 1250);
+    if (selectedStartDate < today) {
+      NotificationManager.error('Start date must be today or later', 'Fail', 1500);
       return;
     }
     const rental = {
