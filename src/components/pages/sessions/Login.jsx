@@ -5,7 +5,7 @@ import { IoKeyOutline } from 'react-icons/io5';
 import LoginBackground from '../../../assets/images/login_background.jpg';
 import { createSession } from '../../../redux/slices/loginSlice';
 
-function Login() {
+const Login = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
@@ -85,6 +85,6 @@ function Login() {
       </div>
     </section>
   );
-}
+};
 
 export default Login;

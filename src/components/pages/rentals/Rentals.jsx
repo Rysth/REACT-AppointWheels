@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cancelRental, fetchRentals } from '../../../redux/slices/rentalsSlice';
 
-function Rentals() {
+const Rentals = () => {
   const { rentalArray, loading } = useSelector((store) => store.rentalsStore);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -76,6 +76,6 @@ function Rentals() {
       ))}
     </section>
   );
-}
+};
 
 export default Rentals;

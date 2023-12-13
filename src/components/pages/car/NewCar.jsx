@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addCar } from '../../../redux/slices/carsSlice';
 
-function NewCar() {
+const NewCar = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 

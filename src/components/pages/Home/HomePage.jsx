@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCars } from '../../../redux/slices/carsSlice';
 import HomeList from './components/HomeList';
 
-function HomePage() {
+const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +30,6 @@ function HomePage() {
       </article>
     </section>
   );
-}
+};
 
 export default HomePage;

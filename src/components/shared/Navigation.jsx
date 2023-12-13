@@ -12,7 +12,7 @@ import AppointWheelsLogo from '../../assets/icons/AppointWheels.png';
 import BurgerMenu from './BurgerMenu';
 import { destroySession } from '../../redux/slices/loginSlice';
 
-function Navigation() {
+const Navigation = () => {
   const dispatch = useDispatch();
   const userToken = sessionStorage.getItem('authToken');
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
@@ -217,6 +217,6 @@ function Navigation() {
       </nav>
     </>
   );
-}
+};
 
 export default Navigation;

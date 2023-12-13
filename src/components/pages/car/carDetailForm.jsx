@@ -8,7 +8,7 @@ import ReactDatePicker from 'react-datepicker';
 import { createRental } from '../../../redux/slices/rentalsSlice';
 import cities from '../../cities/city';
 
-function CarDetailForm({ car }) {
+const CarDetailForm = ({ car }) => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
@@ -126,7 +126,7 @@ function CarDetailForm({ car }) {
       </div>
     </div>
   );
-}
+};
 
 CarDetailForm.propTypes = {
   id: PropTypes.number.isRequired,

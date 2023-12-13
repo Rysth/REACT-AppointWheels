@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function BurgerMenu({ isOpen, toggle }) {
+const BurgerMenu = ({ isOpen, toggle }) => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
@@ -33,7 +33,7 @@ function BurgerMenu({ isOpen, toggle }) {
       />
     </div>
   );
-}
+};
 
 BurgerMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,

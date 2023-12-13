@@ -4,7 +4,7 @@ import { createRental } from '../../../redux/slices/rentalsSlice';
 import { fetchCars } from '../../../redux/slices/carsSlice';
 import cities from '../../cities/city';
 
-function RentalNew() {
+const RentalNew = () => {
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
   const [startDate, setStartDate] = useState('');
@@ -126,6 +126,6 @@ function RentalNew() {
       </form>
     </section>
   );
-}
+};
 
 export default RentalNew;

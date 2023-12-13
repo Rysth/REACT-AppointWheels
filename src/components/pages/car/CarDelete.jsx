@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars, removeCar } from '../../../redux/slices/carsSlice';
 
-function CarDelete() {
+const CarDelete = () => {
   const { carsArray, length, loading } = useSelector((store) => store.carsStore);
   const dispatch = useDispatch();
 
@@ -50,6 +50,6 @@ function CarDelete() {
       </div>
     </section>
   );
-}
+};
 
 export default CarDelete;

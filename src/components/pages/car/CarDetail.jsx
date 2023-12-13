@@ -5,7 +5,7 @@ import { LuArrowBigLeftDash } from 'react-icons/lu';
 import { fetchCars } from '../../../redux/slices/carsSlice';
 import CarDetailForm from './carDetailForm';
 
-function CarDetail() {
+const CarDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const carId = parseInt(id, 10);
@@ -64,6 +64,6 @@ function CarDetail() {
       <CarDetailForm el={id} car={car} />
     </section>
   );
-}
+};
 
 export default CarDetail;
