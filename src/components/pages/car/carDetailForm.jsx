@@ -99,6 +99,7 @@ const CarDetailForm = ({ car }) => {
               onChange={onChange}
               startDate={startDate}
               endDate={endDate}
+              minDate={new Date()}
               selectsRange
               inline
               className="w-full h-full"
