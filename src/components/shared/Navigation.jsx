@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -48,29 +49,24 @@ const Navigation = () => {
                 <NavLink
                   to="/"
                   className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition "
-                  onClick={toggleOpenHome}
                 >
                   Home
                 </NavLink>
-                {isOpenHome && user && user.role === 'admin' && (
-                  <ul className="bg-slate-100">
-                    <li className="mb-1">
-                      <NavLink
-                        to="/newcar"
-                        className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
-                      >
-                        Create Car
-                      </NavLink>
-                    </li>
-                    <li className="mb-1">
-                      <NavLink
-                        to="/deletecar"
-                        className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
-                      >
-                        Delete Car
-                      </NavLink>
-                    </li>
-                  </ul>
+                {user.role === 'admin' && (
+                <>
+                  <NavLink
+                    to="/newcar"
+                    className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
+                  >
+                    Create Car
+                  </NavLink>
+                  <NavLink
+                    to="/deletecar"
+                    className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
+                  >
+                    Delete Car
+                  </NavLink>
+                </>
                 )}
               </li>
               <li>
@@ -113,31 +109,24 @@ const Navigation = () => {
                 to="/"
                 activeclassname="bg-[var(--green)]"
                 className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition "
-                onClick={toggleOpenHome}
               >
                 Home
               </NavLink>
-              {isOpenHome && (
-                <ul className="bg-slate-100">
-                  <li className="mb-1">
-                    <NavLink
-                      to="/newcar"
-                      activeclassname="bg-[var(--green)]"
-                      className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
-                    >
-                      Create Car
-                    </NavLink>
-                  </li>
-                  <li className="mb-1">
-                    <NavLink
-                      to="/deletecar"
-                      activeclassname="bg-[var(--green)]"
-                      className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white"
-                    >
-                      Delete Car
-                    </NavLink>
-                  </li>
-                </ul>
+              {user.role === 'admin' && (
+                <>
+                  <NavLink
+                    to="/newcar"
+                    className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
+                  >
+                    Create Car
+                  </NavLink>
+                  <NavLink
+                    to="/deletecar"
+                    className="block p-2 pl-4 hover:bg-[var(--green)] hover:text-white text-xl font-bold md:hover:transition"
+                  >
+                    Delete Car
+                  </NavLink>
+                </>
               )}
             </li>
             <li>
