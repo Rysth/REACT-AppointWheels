@@ -26,8 +26,11 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
     const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
       headers: { Authorization: authTokenData },
     });
-    NotificationManager.success('Rented!', 'Success', 1250);
-    return response.data;
+    if (response.data.total_price && response.data.total_price >= 0) {
+      NotificationManager.success('Rented!', 'Success', 1250);
+      return response.data;
+    }
+    throw new Error('Invalid total price');
   } catch (error) {
     NotificationManager.error('Rent failed', 'Fail', 1250);
     throw new Error('Error Creating Rental');
