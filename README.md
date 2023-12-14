@@ -127,8 +127,8 @@ Clone the repository:
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- **Link to front end:** [https://appointwheels.onrender.com/]
-- **Link to back end:** [https://rails-appointmentwheels.onrender.com/api-docs/index.html]
+- [Link to front end](https://appointwheels.onrender.com/)
+- [Link to back end](https://rails-appointmentwheels.onrender.com/api-docs/index.html)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
