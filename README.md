@@ -1,79 +1,194 @@
-# John Palacios - RysthCraft
+<a name="readme-top"></a>
+
+<!-- PROJECT LOGO -->
 
 <div align="center">
-  <img src="./banner.png" alt="logo" height="auto" />
+  <a href="/src/assets/icons/AppointWheels.png">
+    <img src="/src/assets/icons/AppointWheels.png" alt="Logo" width="350" height="200">
+  </a>
+  <h1 align="center">AppointWheels</h1>
 </div>
 
-## Table of Contents
 
-- [About the Project](#about-project)
-- [Built With](#built-with)
-- [Key Features](#key-features)
-- [Live Demo](#live-demo)
-- [Getting Started](#getting-started)
-- [Authors](#authors)
-- [License](#license)
+<!-- TABLE OF CONTENTS -->
 
-## About the Project
+# 📗 Table of Contents
 
-- **REACT PROJECT NAME:** ...
+- [💻 Backend Link repository](#backend-link)
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Linters](#linters)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-## Built With
+<!-- BACKEND LINK -->
 
-- HTML
-- CSS
-- JavaScript
-- React
+# 💻 Backend Link repository <a name="backend-link"></a>
 
-## Key Features
+- [**Backend Link**](https://github.com/Rysth/RAILS-AppointWheels)
 
-- 🚀 Feature 1
-- 🌟 Feature 2
-- 🔍 Feature 3
+<!-- PROJECT DESCRIPTION -->
 
-### Live Demo
+# 📖 React AppointWheels <a name="about-project"></a>
 
-[Live Demo](https://react-bookstore-2060.onrender.com/)
+**AppointWheels** is a car rental application built with React and Ruby on Rails. The application allows users to book a car for a specific date and time. Users can create an account and log in to the application. The application is responsive and works on all devices.
 
-## Getting Started
+## 🛠 Built With <a name="built-with"></a>
 
-1. Clone the repository:
+### Tech Stack <a name="tech-stack"></a>
 
-   ```bash
-   git clone https://github.com/Rysth/REACT-Template.git
-   cd REACT-Template
-   code .  # To open VS Code Editor
-   ```
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://react.dev/">React</a></li>
+    <li><a href="https://www.tailwindcss.com/">TailwindCSS</a></li>
+  </ul>
+</details>
 
-2. Customize as needed.
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+</details>
 
-### Commands
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
-- **npm start:** Run the app in development mode.
-- **npm test:** Launch the test runner.
-- **npm run build:** Build the app for production.
+<!-- Features -->
 
-### Linters
+### Key Features <a name="key-features"></a>
+
+- **Car Rental Booking:** Users can book a car for a specific date and time.
+- **User Authentication:** Users can create an account and log in to the application.
+- **Responsive Design:** The application is responsive and works on all devices.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Install <a name="install"></a>
+
+Clone the repository:
+
+```bash
+ git clone https://github.com/Rysth/REACT-AppointWheels.git
+ cd REACT-AppointWheels
+ code .  # To open VS Code Editor
+```
+
+### Usage <a name="usage"></a>
+
+- Install the dependencies and start the server:
+
+  ```bash
+    npm install
+  ```	
+
+- Run the app in development mode:
+
+  ```bash
+    npm start
+  ```
+
+
+### Linters <a name="linters"></a>
 
 - CSS Checker:
 
   ```bash
-  npx stylelint "**/*.{css,scss}"
+    npx stylelint "**/*.{css,scss}" --fix
   ```
 
 - ESLint Checker:
 
   ```bash
-  npx eslint "**/*.{js,jsx}"
+    npx eslint "**/*.{js,jsx}" --fix
   ```
 
-### Authors
+<!-- AUTHORS -->
 
-- John Palacios
+## 👥 Authors <a name="authors"></a>
 
-  - [LinkedIn](https://www.linkedin.com/in/john-rysthcraft/)
-  - [GitHub](https://github.com/Rysth)
+👤 **Soban Syeed**
 
-### License
+- GitHub: [SnakyMZ](https://github.com/SnakyMz)
+- LinkedIn: [Soban Syeed](https://www.linkedin.com/in/soban-syeed/)
+
+👤 **Karim Barragan**
+
+- GitHub: [Rebelzob](https://github.com/Rebelzob)
+- LinkedIn: [Karim Barragan](https://www.linkedin.com/in/karim-barragan/)
+
+👤 **Ismael Mastronardi**
+
+- GitHub: [IsmaelMastronardi](https://github.com/IsmaelMastronardi)
+- LinkedIn: [Ismael Mastronardi](https://www.linkedin.com/in/ismael-mastronardi-361873271/)
+
+👤 **John Palacios**
+
+- GitHub: [RysthCraft](https://github.com/Rysth)
+- LinkedIn: [John Palacios](https://www.linkedin.com/in/john-palacios-rysthcraft)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- **Car Review:** Users can leave a review for a car.
+- **Car Rating:** Users can rate a car.
+- **Car Search:** Users can search for a car by name.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank the following:
+
+- [Microverse](https://www.microverse.org/) for assigning us this project
+- Our Stand Up Teams for their feedback and suggestions
+- Team members for their collaboration to the project
+
+Attribution:
+
+- [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the design idea
+- [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/) for the license
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
