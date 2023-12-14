@@ -8,7 +8,7 @@ export const fetchCars = createAsyncThunk('cars/index',
     const authTokenData = sessionStorage.getItem('authToken');
     try {
       const response = await axios.get(
-        'http://localhost:3001/api/v1/cars',
+        'https://rails-appointmentwheels.onrender.com/api/v1/cars',
         {
           headers: {
             'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export const addCar = createAsyncThunk('cars/addCar', async (car) => {
   const authTokenData = sessionStorage.getItem('authToken');
   try {
     const response = await axios.post(
-      'http://localhost:3001/api/v1/cars',
+      'https://rails-appointmentwheels.onrender.com/api/v1/cars',
       car,
       {
         headers: {
@@ -57,7 +57,7 @@ export const removeCar = createAsyncThunk('cars/removeCar', async (carId) => {
   const authTokenData = sessionStorage.getItem('authToken');
   try {
     const response = await axios.delete(
-      `http://localhost:3001/api/v1/cars/${carId}`,
+      `https://rails-appointmentwheels.onrender.com/api/v1/cars/${carId}`,
       {
         headers: {
           'Content-Type': 'application/json',

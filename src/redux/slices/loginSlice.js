@@ -20,7 +20,7 @@ export const createSession = createAsyncThunk(
   async (customerData) => {
     try {
       const response = await axios.post(
-        'http://localhost:3001/login',
+        'https://rails-appointmentwheels.onrender.com/login',
         customerData,
         {
           headers: {
@@ -49,7 +49,7 @@ export const destroySession = createAsyncThunk(
   'credentials/destroySession',
   async (authorizationToken) => {
     try {
-      const response = await axios.delete('http://localhost:3001/logout', {
+      const response = await axios.delete('https://rails-appointmentwheels.onrender.com/logout', {
         headers: {
           Authorization: authorizationToken,
         },
@@ -74,7 +74,7 @@ export const registerUser = createAsyncThunk(
   async (userData) => {
     try {
       const response = await axios.post(
-        'http://localhost:3001/signup',
+        'https://rails-appointmentwheels.onrender.com/signup',
         userData,
         {
           headers: {
