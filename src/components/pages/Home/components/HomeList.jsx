@@ -19,7 +19,7 @@ const responsive = {
   },
 };
 
-function HomeList() {
+const HomeList = () => {
   const { carsArray } = useSelector((store) => store.carsStore);
 
   return (
@@ -58,7 +58,7 @@ function HomeList() {
       </Carousel>
     </ul>
   );
-}
+};
 
 const CustomLeftArrow = ({ onClick }) => (
   <button

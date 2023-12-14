@@ -6,7 +6,7 @@ import { IoReaderOutline } from 'react-icons/io5';
 import SignUpBackground from '../../../assets/images/signup_background.jpg';
 import { registerUser } from '../../../redux/slices/loginSlice';
 
-function SignUp() {
+const SignUp = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 

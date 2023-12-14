@@ -95,8 +95,18 @@ Clone the repository:
 
 ### Usage <a name="usage"></a>
 
-- **npm start:** Run the app in development mode.
-- **npm run build:** Build the app for production.
+- Install the dependencies and start the server:
+
+  ```bash
+    npm install
+  ```	
+
+- Run the app in development mode:
+
+  ```bash
+    npm start
+  ```
+
 
 ### Linters <a name="linters"></a>
 

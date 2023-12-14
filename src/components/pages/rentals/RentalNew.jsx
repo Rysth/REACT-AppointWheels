@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NotificationManager } from 'react-notifications';
 import { createRental } from '../../../redux/slices/rentalsSlice';
 import { fetchCars } from '../../../redux/slices/carsSlice';
 import cities from '../../cities/city';
 
-function RentalNew() {
+const RentalNew = () => {
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
   const [startDate, setStartDate] = useState('');
@@ -26,6 +27,13 @@ function RentalNew() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const selectedStartDate = new Date(startDate);
+    if (selectedStartDate < today) {
+      NotificationManager.error('Start date must be today or later', 'Fail', 1500);
+      return;
+    }
     const rental = {
       city,
       start_date: startDate,
@@ -47,7 +55,7 @@ function RentalNew() {
         <div className="flex flex-col items-center justify-center mb-4 md:flex-row md:space-x-4">
           <label htmlFor="car" className="flex">
             {loading ? (
-              <p className="loader">Loading...</p>
+              <p className="loader" />
             ) : (
               <select
                 id="car"
@@ -126,6 +134,6 @@ function RentalNew() {
       </form>
     </section>
   );
-}
+};
 
 export default RentalNew;
