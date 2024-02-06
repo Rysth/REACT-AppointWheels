@@ -7,7 +7,7 @@ export const fetchRentals = createAsyncThunk('rentals/fetchRentals', async () =>
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   const authTokenData = sessionStorage.getItem('authToken');
   try {
-    const response = await axios.get(`http://localhost:3001/api/v1/users/${user.id}/rentals`, {
+    const response = await axios.get(`https://rails-appointmentwheels.onrender.com/api/v1/users/${user.id}/rentals`, {
       headers: { Authorization: authTokenData },
       withCredentials: true,
     });
@@ -23,7 +23,7 @@ export const createRental = createAsyncThunk('rentals/createRental', async (rent
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   const authTokenData = sessionStorage.getItem('authToken');
   try {
-    const response = await axios.post(`http://localhost:3001/api/v1/users/${user.id}/rentals`, rental, {
+    const response = await axios.post(`https://rails-appointmentwheels.onrender.com/api/v1/users/${user.id}/rentals`, rental, {
       headers: { Authorization: authTokenData },
     });
     if (response.data.total_price && response.data.total_price >= 0) {
@@ -42,7 +42,7 @@ export const cancelRental = createAsyncThunk('rentals/deleteRental', async (id) 
   const user = JSON.parse(sessionStorage.getItem('userCredentials'));
   const authTokenData = sessionStorage.getItem('authToken');
   try {
-    await axios.delete(`http://localhost:3001/api/v1/users/${user.id}/rentals/${id}`, {
+    await axios.delete(`https://rails-appointmentwheels.onrender.com/api/v1/users/${user.id}/rentals/${id}`, {
       headers: { Authorization: authTokenData },
       withCredentials: true,
     });

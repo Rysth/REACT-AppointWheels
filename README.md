@@ -19,12 +19,13 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Install](#install)
   - [Usage](#usage)
   - [Linters](#linters)
 - [👥 Authors](#authors)
-- [👥 Kanban Board](#Kanban-Board)
+- [📖 Kanban Board](#kanban-board)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [🙏 Acknowledgements](#acknowledgements)
@@ -123,6 +124,14 @@ Clone the repository:
     npx eslint "**/*.{js,jsx}" --fix
   ```
 
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+- [Link to front end](https://appointwheels.onrender.com/)
+- [Link to back end](https://rails-appointmentwheels.onrender.com/api-docs/index.html)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
@@ -151,11 +160,13 @@ Clone the repository:
 
 <!-- KANBAN BOARD -->
 
-## Kanban-Board <a name="Kanban-Board">
+## 📖 Kanban-Board <a name="kanban-board"></a>
+
 - **Kanban Board Link:** [Kanban Board](https://github.com/users/Rysth/projects/2)
-- **Kanban Board picture:** [Picture](https://private-user-images.githubusercontent.com/52711805/286754936-ca7f2756-208e-4fe5-ab64-ffbdfb9271c1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDI1ODQ0NTUsIm5iZiI6MTcwMjU4NDE1NSwicGF0aCI6Ii81MjcxMTgwNS8yODY3NTQ5MzYtY2E3ZjI3NTYtMjA4ZS00ZmU1LWFiNjQtZmZiZGZiOTI3MWMxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzEyMTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMjE0VDIwMDIzNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJmZGYxYzhhMmVhYThjN2U2OWQ1MThlNTM0Y2E4YzVkOWUyYzU4YjQ3ZTAyZmUwY2UzYzBjZDA4YjUxMzlkZTQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.ohBZ25KyjPI937QmDdecaWHv9Ms8O238rhtYF_6qzMg)
+- **Kanban Board picture:** [Picture](./src/assets/images/kanban.png)
 - **Number of Team Members:** 4
-<p align="right">(<a href="#Kanban-Board">back to top</a>)</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
